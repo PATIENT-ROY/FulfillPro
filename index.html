@@ -3,13 +3,13 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>FulfillPro — Фулфилмент для маркетплейсов в Москве и Краснодаре | За 48 часов</title>
+    <title>FulfillPro — Фулфилмент для маркетплейсов | За 48 часов</title>
     <meta name="description" content="Фулфилмент-услуги для Wildberries, Яндекс Маркет и Ozon. Приёмка, упаковка, отгрузка товаров за 48 часов. Страхование груза, персональный менеджер, работа с любыми товарами. Тарифы от 19₽ за заказ.">
     <meta name="keywords" content="фулфилмент, маркетплейсы, Wildberries, Ozon, Яндекс Маркет, логистика, упаковка товаров, склад">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="index, follow">
     <meta property="og:title" content="FulfillPro — Фулфилмент для маркетплейсов за 48 часов">
-    <meta property="og:description" content="Фулфилмент-услуги для Wildberries, Яндекс Маркет и Ozon в Москве и Краснодаре. Приёмка, упаковка, отгрузка товаров.">
+    <meta property="og:description" content="Фулфилмент-услуги для Wildberries, Яндекс Маркет и Ozon. Приёмка, упаковка, отгрузка товаров за 48 часов.">
     <meta property="og:type" content="website">
     <link rel="canonical" href="https://fulfillpro.ru">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -379,6 +379,79 @@
         .mobile-messenger-icon svg {
             width: 24px;
             height: 24px;
+        }
+        /* Мобильный header с контактами (только для мобильных устройств) */
+        
+        .mobile-header-contacts {
+            display: none;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 20px;
+            background: var(--bg-white);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1001;
+        }
+        
+        .mobile-header-phone {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 600;
+            font-size: 16px;
+        }
+        
+        .mobile-header-phone-icon {
+            width: 24px;
+            height: 24px;
+            color: var(--primary);
+            flex-shrink: 0;
+        }
+        
+        .mobile-header-phone-icon svg {
+            width: 100%;
+            height: 100%;
+        }
+        
+        .mobile-header-messengers {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+        
+        .mobile-header-messenger {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .mobile-header-messenger.whatsapp {
+            background: #E8F5E9;
+        }
+        
+        .mobile-header-messenger.telegram {
+            background: #E3F2FD;
+        }
+        
+        .mobile-header-messenger:hover {
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+        
+        .mobile-header-messenger svg {
+            width: 22px;
+            height: 22px;
         }
         /* HERO */
         
@@ -931,85 +1004,472 @@
                 min-height: 400px;
             }
         }
-        /* TARIFFS */
+        /* STATS SECTION - Блок статистики и достижений */
         
-        .tariffs {
+        .stats-section {
+            background: linear-gradient(135deg, var(--primary) 0%, #8B5CF6 100%);
+            padding: 60px 40px;
+            margin: 0;
+            max-width: 100%;
+        }
+        
+        .stats-container {
+            max-width: 1200px;
+            margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 25px;
+        }
+        
+        .stat-item {
+            text-align: center;
+            color: white;
+            padding: 20px 15px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .stat-number {
+            font-size: 36px;
+            font-weight: 800;
+            line-height: 1;
+            margin-bottom: 8px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            white-space: nowrap;
+        }
+        
+        .stat-label {
+            font-size: 15px;
+            font-weight: 500;
+            opacity: 0.95;
+            line-height: 1.3;
+        }
+        
+        .stat-description {
+            font-size: 12px;
+            opacity: 0.85;
+            margin-top: 6px;
+            font-weight: 400;
+        }
+        
+        @media (max-width: 768px) {
+            .stats-section {
+                padding: 40px 20px;
+            }
+            .stats-container {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            .stat-item {
+                padding: 18px 12px;
+            }
+            .stat-number {
+                font-size: 32px;
+            }
+            .stat-label {
+                font-size: 14px;
+            }
+            .stat-description {
+                font-size: 11px;
+            }
+        }
+        /* SCHEDULE SECTION */
+        
+        .schedule-section {
+            background: var(--bg-light);
+            padding: 100px 40px;
+            max-width: 1200px;
+            margin: auto;
+        }
+        
+        .schedule-blocks {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
             margin-top: 60px;
         }
         
-        .tariff {
-            padding: 40px 30px;
+        .schedule-block {
             background: var(--bg-white);
-            border: 2px solid #e2e8f0;
+            padding: 50px 40px;
             border-radius: 20px;
-            text-align: center;
-            transition: all 0.4s ease;
-            position: relative;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
         }
         
-        .tariff:hover {
-            transform: translateY(-10px);
+        .schedule-block:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(108, 74, 254, 0.15);
             border-color: var(--primary);
-            box-shadow: var(--shadow-lg);
         }
         
-        .tariff.featured {
-            background: var(--gradient);
-            color: white;
-            border-color: transparent;
-            transform: scale(1.05);
-        }
-        
-        .tariff.featured h3,
-        .tariff.featured .price,
-        .tariff.featured li {
-            color: white;
-        }
-        
-        .tariff.featured:hover {
-            transform: scale(1.08) translateY(-5px);
-        }
-        
-        .tariff h3 {
-            margin-bottom: 15px;
+        .schedule-block h3 {
             font-size: 28px;
             font-weight: 700;
+            color: var(--text);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
         }
         
-        .price {
-            font-size: 36px;
-            font-weight: 800;
-            color: var(--primary);
+        .schedule-block .intro-text {
+            font-size: 18px;
+            color: var(--text-light);
+            line-height: 1.7;
+            margin-bottom: 30px;
+        }
+        
+        .schedule-routes {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 25px;
+        }
+        
+        .route-category-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--bg-light);
+        }
+        
+        .route-item {
+            padding: 20px;
+            background: var(--bg-light);
+            border-radius: 12px;
+            margin-bottom: 15px;
+            border-left: 4px solid var(--primary);
+        }
+        
+        .route-city-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 15px;
+        }
+        
+        .route-city-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--primary);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            flex-shrink: 0;
+        }
+        
+        .route-city {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--text);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .route-city-badge {
+            padding: 4px 10px;
+            background: var(--accent);
+            color: white;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        
+        .route-dates {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        
+        .date-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 14px;
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text);
+        }
+        
+        .date-arrow {
+            font-size: 14px;
+            color: var(--text-light);
+        }
+        
+        .route-category {
+            margin-bottom: 40px;
+        }
+        /* Стили для диаграмм и графиков */
+        
+        .schedule-chart {
+            margin: 30px 0;
+            width: 100%;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        
+        .schedule-chart img,
+        .schedule-chart canvas,
+        .schedule-chart svg {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 12px;
+        }
+        
+        .schedule-chart-wrapper {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
             margin: 20px 0;
         }
         
-        .tariff ul {
-            text-align: left;
-            margin-top: 25px;
-            line-height: 2;
-            list-style: none;
+        .schedule-chart-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 15px;
+            text-align: center;
         }
+        /* Стили для встраивания графиков (Chart.js, Google Charts и т.д.) */
         
-        .tariff li {
-            padding: 8px 0 8px 30px;
+        .chart-container {
             position: relative;
-            font-size: 16px;
+            width: 100%;
+            margin: 20px 0;
+            padding: 15px;
+            background: white;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
         }
         
-        .tariff li::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: var(--accent);
-            font-weight: bold;
-            font-size: 20px;
+        .chart-container canvas {
+            max-width: 100%;
         }
         
-        .tariff.featured li::before {
+        .daily-routes {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            align-items: center;
+            margin-top: 20px;
+        }
+        
+        .daily-route-city {
+            padding: 12px 24px;
+            background: linear-gradient(135deg, var(--primary) 0%, #8B5CF6 100%);
             color: white;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 16px;
+            box-shadow: 0 4px 12px rgba(108, 74, 254, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .daily-route-city:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 6px 18px rgba(108, 74, 254, 0.4);
+        }
+        
+        .daily-routes-guarantee {
+            margin-top: 25px;
+            padding: 20px;
+            background: linear-gradient(135deg, #f0f4ff 0%, #e8f0fe 100%);
+            border-radius: 12px;
+            border-left: 4px solid var(--accent);
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--text);
+        }
+        
+        @media (max-width: 768px) {
+            .schedule-section {
+                padding: 60px 20px;
+            }
+            .schedule-block {
+                padding: 30px 20px;
+            }
+            .schedule-block h3 {
+                font-size: 24px;
+            }
+            .route-category-title {
+                font-size: 18px;
+            }
+            .route-item {
+                padding: 15px;
+            }
+            .route-city-wrapper {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+            .route-city-icon {
+                width: 36px;
+                height: 36px;
+                font-size: 18px;
+            }
+            .route-city {
+                font-size: 16px;
+                flex-wrap: wrap;
+            }
+            .route-dates {
+                gap: 6px;
+            }
+            .date-badge {
+                padding: 6px 10px;
+                font-size: 12px;
+            }
+            .daily-routes {
+                gap: 10px;
+            }
+            .daily-route-city {
+                padding: 10px 20px;
+                font-size: 14px;
+            }
+            .schedule-chart-wrapper,
+            .chart-container {
+                padding: 15px;
+                margin: 15px 0;
+            }
+            .schedule-chart-title {
+                font-size: 16px;
+            }
+        }
+        /* TARIFFS */
+        
+        .tariffs-table-wrapper {
+            max-width: 1200px;
+            margin: 60px auto 0;
+            overflow-x: auto;
+        }
+        
+        .tariffs-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--bg-white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+        
+        .tariffs-table thead {
+            background: linear-gradient(135deg, var(--primary) 0%, #8B5CF6 100%);
+            color: white;
+        }
+        
+        .tariffs-table th {
+            padding: 18px 20px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 16px;
+            border-right: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .tariffs-table th:first-child {
+            width: 30%;
+            border-right: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .tariffs-table th:last-child {
+            border-right: none;
+            text-align: center;
+        }
+        
+        .tariffs-table th:not(:first-child) {
+            text-align: center;
+        }
+        
+        .tariffs-table tbody tr {
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        .tariffs-table tbody tr:last-child {
+            border-bottom: none;
+        }
+        
+        .tariffs-table tbody tr:hover {
+            background: var(--bg-light);
+        }
+        
+        .tariffs-table td {
+            padding: 20px;
+            font-size: 15px;
+            color: var(--text);
+        }
+        
+        .tariffs-table td:first-child {
+            font-weight: 600;
+        }
+        
+        .tariffs-table td:not(:first-child) {
+            text-align: center;
+            font-weight: 600;
+            color: var(--primary);
+        }
+        
+        .size-name {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 8px;
+        }
+        
+        .size-specs {
+            font-size: 13px;
+            color: var(--text-light);
+            line-height: 1.6;
+            font-weight: 400;
+        }
+        
+        .price-value {
+            font-size: 18px;
+            font-weight: 700;
+        }
+        
+        .price-unit {
+            font-size: 13px;
+            font-weight: 500;
+            opacity: 0.8;
+        }
+        
+        @media (max-width: 768px) {
+            .tariffs-table-wrapper {
+                margin: 40px -20px 0;
+                padding: 0 20px;
+            }
+            .tariffs-table {
+                font-size: 14px;
+            }
+            .tariffs-table th {
+                padding: 12px 10px;
+                font-size: 13px;
+            }
+            .tariffs-table td {
+                padding: 15px 10px;
+                font-size: 13px;
+            }
+            .size-name {
+                font-size: 16px;
+            }
+            .size-specs {
+                font-size: 12px;
+            }
+            .price-value {
+                font-size: 16px;
+            }
         }
         /* CONTACT SECTION */
         
@@ -1302,9 +1762,13 @@
         }
         
         @media (max-width: 768px) {
+            .mobile-header-contacts {
+                display: flex;
+            }
             header {
                 padding: 15px 20px;
                 flex-wrap: nowrap;
+                top: 64px;
             }
             .burger-menu {
                 display: flex;
@@ -1322,12 +1786,13 @@
             }
             .mobile-nav {
                 display: flex;
+                top: 130px;
             }
             header .header-contacts {
                 display: none;
             }
             .hero {
-                padding: 100px 20px 80px;
+                padding: 180px 20px 80px;
                 background-size: cover;
                 background-attachment: scroll;
             }
@@ -1335,16 +1800,12 @@
                 padding: 60px 20px;
             }
             .work-steps,
-            .tariffs,
             .advantages,
             .why-us-text {
                 grid-template-columns: 1fr;
             }
             .work-steps::before {
                 display: none;
-            }
-            .tariff.featured {
-                transform: scale(1);
             }
             .why-us-content {
                 grid-template-columns: 1fr;
@@ -1426,9 +1887,6 @@
             }
             .step h3 {
                 font-size: 20px;
-            }
-            .tariff {
-                padding: 30px 20px;
             }
             footer {
                 padding: 25px 15px 20px;
@@ -1513,6 +1971,30 @@
 
 <body>
 
+    <!-- Мобильный header с контактами (только для мобильных устройств) -->
+    <div class="mobile-header-contacts">
+        <a href="tel:+79991234567" class="mobile-header-phone">
+            <div class="mobile-header-phone-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                </svg>
+            </div>
+            <span>+7 (999) 123-45-67</span>
+        </a>
+        <div class="mobile-header-messengers">
+            <a href="https://wa.me/79991234567" class="mobile-header-messenger whatsapp" target="_blank" title="WhatsApp">
+                <svg viewBox="0 0 24 24" fill="#25D366">
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+                </svg>
+            </a>
+            <a href="https://t.me/+79991234567" class="mobile-header-messenger telegram" target="_blank" title="Telegram">
+                <svg viewBox="0 0 24 24" fill="#0088cc">
+                    <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.559z"/>
+                </svg>
+            </a>
+        </div>
+    </div>
+
     <header role="banner">
         <a href="#" class="logo" aria-label="На главную">
             <div class="logo-icon">
@@ -1573,29 +2055,13 @@
         <a href="#contact" aria-label="Перейти к разделу Контакты">Контакты</a>
 
         <a href="#contact-form" class="mobile-nav-cta" aria-label="Оставить заявку">Оставить заявку</a>
-
-        <div class="mobile-nav-contacts">
-            <a href="tel:+79991234567" class="mobile-phone-link">+7 (999) 123-45-67</a>
-            <div class="mobile-nav-messengers">
-                <a href="https://wa.me/79991234567" class="mobile-messenger-icon whatsapp" target="_blank" title="WhatsApp">
-                    <svg viewBox="0 0 24 24" fill="#25D366">
-                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
-                    </svg>
-                </a>
-                <a href="https://t.me/+79991234567" class="mobile-messenger-icon telegram" target="_blank" title="Telegram">
-                    <svg viewBox="0 0 24 24" fill="#0088cc">
-                        <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.559z"/>
-                    </svg>
-                </a>
-            </div>
-        </div>
     </nav>
 
     <!-- HERO -->
     <section class="hero" role="banner">
         <div class="hero-content">
             <h1>Освободите время — мы возьмём на себя всю логистику</h1>
-            <p style="font-size: clamp(20px, 3vw, 24px); margin-bottom: 20px; font-weight: 600;">В Москве и Краснодаре "под ключ" за 48 часов</p>
+            <p style="font-size: clamp(20px, 3vw, 24px); margin-bottom: 20px; font-weight: 600;">"Под ключ" за 48 часов</p>
             <p style="font-size: clamp(16px, 2.5vw, 18px);">Фулфилмент для Wildberries, Яндекс Маркет и Ozon: приёмка, упаковка, отгрузка. Работаем с любыми товарами, включая бытовую химию.</p>
             <a class="btn-main" href="#contact" aria-label="Рассчитать стоимость фулфилмента">Рассчитать стоимость</a>
         </div>
@@ -1666,8 +2132,7 @@
         <div style="max-width: 900px; margin: 50px auto 0; text-align: center;">
             <div class="scroll-reveal" style="background: var(--bg-light); padding: 40px; border-radius: 20px; margin-bottom: 30px;">
                 <p style="font-size: 18px; line-height: 1.8; color: var(--text);">
-                    Мы специализируемся на фулфилменте для маркетплейсов Wildberries, Ozon и Яндекс Маркет. Наша команда имеет более 5 лет опыта работы в логистике и знает все тонкости работы с крупнейшими маркетплейсами России. Обработали более 1 000 000 заказов, работаем
-                    с 500+ селлерами.
+                    Мы специализируемся на фулфилменте для маркетплейсов Wildberries, Ozon и Яндекс Маркет. Наша команда знает все тонкости работы с крупнейшими маркетплейсами России и готова взять на себя всю логистику вашего бизнеса.
                 </p>
             </div>
 
@@ -1678,6 +2143,35 @@
                 <div class="adv">💰 Выгодные тарифы</div>
                 <div class="adv">📦 Аккуратная упаковка</div>
                 <div class="adv">✅ Без ошибок и штрафов</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- STATS SECTION - Блок статистики и достижений -->
+    <section class="stats-section">
+        <div class="stats-container">
+            <div class="stat-item scroll-reveal">
+                <div class="stat-number">1 000 000+</div>
+                <div class="stat-label">Заказов обработано</div>
+                <div class="stat-description">Более миллиона успешных отгрузок</div>
+            </div>
+
+            <div class="stat-item scroll-reveal">
+                <div class="stat-number">500+</div>
+                <div class="stat-label">Активных селлеров</div>
+                <div class="stat-description">Доверяют нам свою логистику</div>
+            </div>
+
+            <div class="stat-item scroll-reveal">
+                <div class="stat-number">5+</div>
+                <div class="stat-label">Лет опыта</div>
+                <div class="stat-description">В логистике и фулфилменте</div>
+            </div>
+
+            <div class="stat-item scroll-reveal">
+                <div class="stat-number">48</div>
+                <div class="stat-label">Часов обработка</div>
+                <div class="stat-description">От приёмки до отгрузки</div>
             </div>
         </div>
     </section>
@@ -1707,9 +2201,9 @@
                 </div>
 
                 <div class="why-us-item">
-                    <div class="why-us-icon">🚚</div>
+                    <div class="why-us-icon">⚡</div>
                     <h3>Гибкая логистика</h3>
-                    <p>Выстраиваем логистику самостоятельно и с помощью проверенных транспортных компаний. Сами осуществляем быстрые прямые поставки в Электросталь и Казань.</p>
+                    <p>Работаем по четкому графику отгрузок, известному на месяц вперед. Ежедневные маршруты по ключевым направлениям гарантируют быструю доставку ваших товаров. Выстраиваем логистику самостоятельно и с помощью проверенных транспортных компаний.</p>
                 </div>
             </div>
 
@@ -1719,49 +2213,421 @@
         </div>
     </section>
 
+    <!-- SCHEDULE SECTION -->
+    <section class="schedule-section">
+        <h2 class="scroll-reveal">График отгрузок</h2>
+        <p class="section-subtitle scroll-reveal">Планируйте свои поставки заранее - вы всегда знаете, когда ваш товар будет доставлен</p>
+
+        <div class="schedule-blocks">
+            <!-- График отгрузок на месяц вперед -->
+            <div class="schedule-block scroll-reveal">
+                <h3>📅 График отгрузок на месяц вперед</h3>
+                <p class="intro-text">Мы работаем по четкому графику, который известен на месяц вперед. Вы можете планировать заранее!</p>
+
+                <!-- ОБЛАСТЬ ДЛЯ ВСТАВКИ ДИАГРАММЫ ИЛИ ГРАФИКА -->
+                <!-- Вы можете добавить изображение диаграммы здесь, раскомментировав код ниже -->
+                <!-- 
+                <div class="schedule-chart-wrapper">
+                    <div class="schedule-chart-title">Визуализация графика отгрузок</div>
+                    <div class="schedule-chart">
+                        <img src="./images/график-отгрузок.png" alt="График отгрузок на месяц">
+                    </div>
+                </div>
+                -->
+
+                <!-- Или для интерактивного графика (Chart.js, Google Charts и т.д.), используйте:
+                <div class="chart-container">
+                    <canvas id="scheduleChart"></canvas>
+                </div>
+                -->
+
+                <div class="schedule-routes">
+                    <div class="route-category">
+                        <div class="route-category-title">🔄 Регулярные направления (2-3 дня в неделю)</div>
+
+                        <div class="route-item">
+                            <div class="route-city-wrapper">
+                                <div class="route-city-icon">📍</div>
+                                <div class="route-city">
+                                    Рязань
+                                    <span class="route-city-badge">Регулярно</span>
+                                </div>
+                            </div>
+                            <div class="route-dates">
+                                <div class="date-badge">
+                                    <span>04.11</span>
+                                    <span class="date-arrow">→</span>
+                                    <span>05.11</span>
+                                </div>
+                                <div class="date-badge">
+                                    <span>07.11</span>
+                                    <span class="date-arrow">→</span>
+                                    <span>08.11</span>
+                                </div>
+                                <div class="date-badge">
+                                    <span>11.11</span>
+                                    <span class="date-arrow">→</span>
+                                    <span>12.11</span>
+                                </div>
+                                <div class="date-badge">
+                                    <span>14.11</span>
+                                    <span class="date-arrow">→</span>
+                                    <span>15.11</span>
+                                </div>
+                                <div class="date-badge">
+                                    <span>18.11</span>
+                                    <span class="date-arrow">→</span>
+                                    <span>19.11</span>
+                                </div>
+                                <div class="date-badge">
+                                    <span>21.11</span>
+                                    <span class="date-arrow">→</span>
+                                    <span>22.11</span>
+                                </div>
+                                <div class="date-badge">
+                                    <span>25.11</span>
+                                    <span class="date-arrow">→</span>
+                                    <span>26.11</span>
+                                </div>
+                                <div class="date-badge">
+                                    <span>28.11</span>
+                                    <span class="date-arrow">→</span>
+                                    <span>29.11</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="route-item">
+                            <div class="route-city-wrapper">
+                                <div class="route-city-icon">📍</div>
+                                <div class="route-city">
+                                    Казань
+                                    <span class="route-city-badge">Регулярно</span>
+                                </div>
+                            </div>
+                            <div class="route-dates">
+                                <div class="date-badge">
+                                    <span>03.11</span>
+                                    <span class="date-arrow">→</span>
+                                    <span>04.11</span>
+                                </div>
+                                <div class="date-badge">
+                                    <span>06.11</span>
+                                    <span class="date-arrow">→</span>
+                                    <span>07.11</span>
+                                </div>
+                                <div class="date-badge">
+                                    <span>10.11</span>
+                                    <span class="date-arrow">→</span>
+                                    <span>11.11</span>
+                                </div>
+                                <div class="date-badge">
+                                    <span>13.11</span>
+                                    <span class="date-arrow">→</span>
+                                    <span>14.11</span>
+                                </div>
+                                <div class="date-badge">
+                                    <span>17.11</span>
+                                    <span class="date-arrow">→</span>
+                                    <span>18.11</span>
+                                </div>
+                                <div class="date-badge">
+                                    <span>20.11</span>
+                                    <span class="date-arrow">→</span>
+                                    <span>21.11</span>
+                                </div>
+                                <div class="date-badge">
+                                    <span>24.11</span>
+                                    <span class="date-arrow">→</span>
+                                    <span>25.11</span>
+                                </div>
+                                <div class="date-badge">
+                                    <span>27.11</span>
+                                    <span class="date-arrow">→</span>
+                                    <span>28.11</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="route-item">
+                            <div class="route-city-wrapper">
+                                <div class="route-city-icon">📍</div>
+                                <div class="route-city">
+                                    Краснодар
+                                    <span class="route-city-badge">Регулярно</span>
+                                </div>
+                            </div>
+                            <div class="route-dates">
+                                <div class="date-badge">
+                                    <span>08.11</span>
+                                    <span class="date-arrow">→</span>
+                                    <span>11.11</span>
+                                </div>
+                                <div class="date-badge">
+                                    <span>12.11</span>
+                                    <span class="date-arrow">→</span>
+                                    <span>15.11</span>
+                                </div>
+                                <div class="date-badge">
+                                    <span>15.11</span>
+                                    <span class="date-arrow">→</span>
+                                    <span>18.11</span>
+                                </div>
+                                <div class="date-badge">
+                                    <span>19.11</span>
+                                    <span class="date-arrow">→</span>
+                                    <span>22.11</span>
+                                </div>
+                                <div class="date-badge">
+                                    <span>22.11</span>
+                                    <span class="date-arrow">→</span>
+                                    <span>25.11</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="route-category">
+                        <div class="route-category-title">📅 Направления с еженедельными рейсами</div>
+
+                        <div class="route-item">
+                            <div class="route-city-wrapper">
+                                <div class="route-city-icon">📍</div>
+                                <div class="route-city">
+                                    Новосемейкино
+                                    <span class="route-city-badge">Еженедельно</span>
+                                </div>
+                            </div>
+                            <div class="route-dates">
+                                <div class="date-badge">
+                                    <span>03.11</span>
+                                    <span class="date-arrow">→</span>
+                                    <span>05.11</span>
+                                </div>
+                                <div class="date-badge">
+                                    <span>10.11</span>
+                                    <span class="date-arrow">→</span>
+                                    <span>12.11</span>
+                                </div>
+                                <div class="date-badge">
+                                    <span>17.11</span>
+                                    <span class="date-arrow">→</span>
+                                    <span>19.11</span>
+                                </div>
+                                <div class="date-badge">
+                                    <span>24.11</span>
+                                    <span class="date-arrow">→</span>
+                                    <span>26.11</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="route-item">
+                            <div class="route-city-wrapper">
+                                <div class="route-city-icon">📍</div>
+                                <div class="route-city">
+                                    Котовск
+                                    <span class="route-city-badge">Еженедельно</span>
+                                </div>
+                            </div>
+                            <div class="route-dates">
+                                <div class="date-badge">
+                                    <span>06.11</span>
+                                    <span class="date-arrow">→</span>
+                                    <span>07.11</span>
+                                </div>
+                                <div class="date-badge">
+                                    <span>13.11</span>
+                                    <span class="date-arrow">→</span>
+                                    <span>14.11</span>
+                                </div>
+                                <div class="date-badge">
+                                    <span>20.11</span>
+                                    <span class="date-arrow">→</span>
+                                    <span>21.11</span>
+                                </div>
+                                <div class="date-badge">
+                                    <span>27.11</span>
+                                    <span class="date-arrow">→</span>
+                                    <span>28.11</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="route-item">
+                            <div class="route-city-wrapper">
+                                <div class="route-city-icon">📍</div>
+                                <div class="route-city">
+                                    Невинномысск
+                                    <span class="route-city-badge">Еженедельно</span>
+                                </div>
+                            </div>
+                            <div class="route-dates">
+                                <div class="date-badge">
+                                    <span>04.11</span>
+                                    <span class="date-arrow">→</span>
+                                    <span>07.11</span>
+                                </div>
+                                <div class="date-badge">
+                                    <span>11.11</span>
+                                    <span class="date-arrow">→</span>
+                                    <span>14.11</span>
+                                </div>
+                                <div class="date-badge">
+                                    <span>18.11</span>
+                                    <span class="date-arrow">→</span>
+                                    <span>21.11</span>
+                                </div>
+                                <div class="date-badge">
+                                    <span>25.11</span>
+                                    <span class="date-arrow">→</span>
+                                    <span>28.11</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ВАЖНО: Вы также можете добавить диаграмму/график в конце расписания маршрутов -->
+                <!-- Для этого раскомментируйте и отредактируйте пример выше, или добавьте новый здесь -->
+
+            </div>
+
+            <!-- Ежедневные маршруты -->
+            <div class="schedule-block scroll-reveal">
+                <h3>🚚 Ежедневные маршруты</h3>
+                <p class="intro-text">Каждый день наши машины выезжают по ключевым направлениям, гарантируя быструю доставку ваших товаров.</p>
+
+                <div class="daily-routes">
+                    <div class="daily-route-city">Электросталь</div>
+                    <div class="daily-route-city">Коледино</div>
+                    <div class="daily-route-city">Подольск</div>
+                    <div class="daily-route-city">Тула</div>
+                    <div class="daily-route-city">Рязань</div>
+                </div>
+
+                <div class="daily-routes-guarantee">
+                    Гарантируем быструю доставку ваших товаров!
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- TARIFFS -->
     <section id="tariffs">
         <h2 class="scroll-reveal">Тарифы</h2>
         <p class="section-subtitle scroll-reveal">Выберите план, который подходит вашему бизнесу</p>
 
-        <div class="tariffs">
-
-            <div class="tariff scroll-reveal">
-                <h3>Старт</h3>
-                <div class="price">39 ₽</div>
-                <p style="color: var(--text-light); margin-bottom: 20px;">за заказ</p>
-                <ul>
-                    <li>Обработка заказа: 39 ₽</li>
-                    <li>Хранение: 0 ₽ (первые 5 дней)</li>
-                    <li>Приёмка: 5 ₽ за единицу</li>
-                    <li>Минимум: 50 заказов/месяц</li>
-                </ul>
-            </div>
-
-            <div class="tariff featured scroll-reveal">
-                <h3>Бизнес</h3>
-                <div class="price">29 ₽</div>
-                <p style="opacity: 0.9; margin-bottom: 20px;">за заказ</p>
-                <ul>
-                    <li>Обработка заказа: 29 ₽</li>
-                    <li>Хранение: 3 ₽/день</li>
-                    <li>Приёмка: 3 ₽ за единицу</li>
-                    <li>Минимум: 200 заказов/месяц</li>
-                </ul>
-            </div>
-
-            <div class="tariff scroll-reveal">
-                <h3>Премиум</h3>
-                <div class="price">19 ₽</div>
-                <p style="color: var(--text-light); margin-bottom: 20px;">за заказ</p>
-                <ul>
-                    <li>Обработка заказа: 19 ₽</li>
-                    <li>Хранение: 2 ₽/день</li>
-                    <li>Приёмка: бесплатно</li>
-                    <li>Минимум: 500 заказов/месяц</li>
-                </ul>
-            </div>
-
+        <div class="tariffs-table-wrapper scroll-reveal">
+            <table class="tariffs-table">
+                <thead>
+                    <tr>
+                        <th>Упаковка/Тариф</th>
+                        <th>База</th>
+                        <th>База +</th>
+                        <th>Предприниматель</th>
+                        <th>Педант</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <div class="size-name">Размер XS</div>
+                            <div class="size-specs">
+                                Сумма сторон товара - до 30 см.<br> Вес - до 0,25 кг.
+                            </div>
+                        </td>
+                        <td>
+                            <div class="price-value">16</div>
+                            <div class="price-unit">р/ед</div>
+                        </td>
+                        <td>
+                            <div class="price-value">19</div>
+                            <div class="price-unit">р/ед</div>
+                        </td>
+                        <td>
+                            <div class="price-value">24</div>
+                            <div class="price-unit">р/ед</div>
+                        </td>
+                        <td>
+                            <div class="price-value">32</div>
+                            <div class="price-unit">р/ед</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="size-name">Размер S</div>
+                            <div class="size-specs">
+                                Сумма сторон товара - до 80 см.<br> Вес - до 1 кг.
+                            </div>
+                        </td>
+                        <td>
+                            <div class="price-value">20</div>
+                            <div class="price-unit">р/ед</div>
+                        </td>
+                        <td>
+                            <div class="price-value">24</div>
+                            <div class="price-unit">р/ед</div>
+                        </td>
+                        <td>
+                            <div class="price-value">30</div>
+                            <div class="price-unit">р/ед</div>
+                        </td>
+                        <td>
+                            <div class="price-value">40</div>
+                            <div class="price-unit">р/ед</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="size-name">Размер M</div>
+                            <div class="size-specs">
+                                Сумма сторон товара - до 110 см.<br> Вес - до 3 кг.
+                            </div>
+                        </td>
+                        <td>
+                            <div class="price-value">26</div>
+                            <div class="price-unit">р/ед</div>
+                        </td>
+                        <td>
+                            <div class="price-value">31</div>
+                            <div class="price-unit">р/ед</div>
+                        </td>
+                        <td>
+                            <div class="price-value">39</div>
+                            <div class="price-unit">р/ед</div>
+                        </td>
+                        <td>
+                            <div class="price-value">52</div>
+                            <div class="price-unit">р/ед</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="size-name">Размер L</div>
+                            <div class="size-specs">
+                                Сумма сторон товара - до 140 см.<br> Вес - до 5 кг.
+                            </div>
+                        </td>
+                        <td>
+                            <div class="price-value">36</div>
+                            <div class="price-unit">р/ед</div>
+                        </td>
+                        <td>
+                            <div class="price-value">43</div>
+                            <div class="price-unit">р/ед</div>
+                        </td>
+                        <td>
+                            <div class="price-value">54</div>
+                            <div class="price-unit">р/ед</div>
+                        </td>
+                        <td>
+                            <div class="price-value">72</div>
+                            <div class="price-unit">р/ед</div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </section>
 
@@ -1871,7 +2737,7 @@
             <a href="#contact" aria-label="Перейти к разделу Контакты">Контакты</a>
         </nav>
         <p>© 2025 Все права защищены</p>
-        <p style="margin-top: 8px; opacity: 0.8;">Москва, Краснодар | Wildberries, Яндекс Маркет & Ozon</p>
+        <p style="margin-top: 8px; opacity: 0.8;">Wildberries, Яндекс Маркет & Ozon</p>
     </footer>
 
     <script>
