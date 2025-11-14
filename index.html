@@ -258,7 +258,7 @@
         .mobile-nav {
             display: none;
             position: fixed;
-            top: 70px;
+            top: 0;
             left: 0;
             right: 0;
             background: var(--bg-white);
@@ -269,7 +269,7 @@
             gap: 0;
             transform: translateY(-100%);
             transition: transform 0.3s ease;
-            max-height: calc(100vh - 70px);
+            max-height: 100vh;
             overflow-y: auto;
             border-top: 1px solid rgba(0, 0, 0, 0.05);
         }
@@ -1322,8 +1322,6 @@
             }
             .mobile-nav {
                 display: flex;
-                top: 65px;
-                max-height: calc(100vh - 65px);
             }
             header .header-contacts {
                 display: none;
@@ -1772,7 +1770,7 @@
         <h2 class="scroll-reveal">Контакты</h2>
         <p class="section-subtitle scroll-reveal">Свяжитесь с нами любым удобным способом</p>
 
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; margin-top: 60px;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; margin: 60px auto 0; max-width: 1200px;">
             <!-- Контактная информация -->
             <div class="scroll-reveal" style="background: var(--bg-light); padding: 40px; border-radius: 20px;">
                 <h3 style="font-size: 24px; margin-bottom: 30px; color: var(--text);">Наши контакты</h3>
@@ -1923,7 +1921,24 @@
         // Бургер-меню
         const burgerMenu = document.querySelector('.burger-menu');
         const mobileNav = document.querySelector('.mobile-nav');
+        const header = document.querySelector('header');
         const body = document.body;
+
+        // Функция для установки правильной позиции мобильного меню
+        function updateMobileNavPosition() {
+            if (mobileNav && header) {
+                const headerHeight = header.offsetHeight;
+                mobileNav.style.top = headerHeight + 'px';
+                mobileNav.style.maxHeight = `calc(100vh - ${headerHeight}px)`;
+            }
+        }
+
+        // Устанавливаем позицию при загрузке и изменении размера окна
+        updateMobileNavPosition();
+        window.addEventListener('resize', updateMobileNavPosition);
+
+        // Обновляем позицию при скролле (на случай изменения высоты header)
+        window.addEventListener('scroll', updateMobileNavPosition);
 
         function toggleMenu() {
             const isActive = burgerMenu.classList.toggle('active');
@@ -1932,16 +1947,20 @@
             body.style.overflow = isActive ? 'hidden' : '';
         }
 
+        function closeMenu() {
+            burgerMenu.classList.remove('active');
+            mobileNav.classList.remove('active');
+            burgerMenu.setAttribute('aria-expanded', 'false');
+            body.style.overflow = '';
+        }
+
         if (burgerMenu) {
             burgerMenu.addEventListener('click', toggleMenu);
 
             // Закрытие меню при клике на ссылку
             mobileNav.querySelectorAll('a').forEach(link => {
                 link.addEventListener('click', function() {
-                    burgerMenu.classList.remove('active');
-                    mobileNav.classList.remove('active');
-                    burgerMenu.setAttribute('aria-expanded', 'false');
-                    body.style.overflow = '';
+                    closeMenu();
                 });
             });
 
@@ -1950,10 +1969,7 @@
                 if (mobileNav.classList.contains('active') &&
                     !mobileNav.contains(e.target) &&
                     !burgerMenu.contains(e.target)) {
-                    burgerMenu.classList.remove('active');
-                    mobileNav.classList.remove('active');
-                    burgerMenu.setAttribute('aria-expanded', 'false');
-                    body.style.overflow = '';
+                    closeMenu();
                 }
             });
         }
