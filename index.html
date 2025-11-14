@@ -213,6 +213,105 @@
         header .header-cta:active {
             transform: translateY(0) scale(1);
         }
+        
+        /* BURGER MENU */
+        .burger-menu {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+            z-index: 1001;
+            padding: 8px 5px;
+            background: transparent;
+            border: none;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .burger-menu:focus {
+            outline: 3px solid var(--primary);
+            outline-offset: 2px;
+            border-radius: 4px;
+        }
+        
+        .burger-menu span {
+            width: 25px;
+            height: 3px;
+            background: var(--text);
+            border-radius: 3px;
+            transition: all 0.3s ease;
+            display: block;
+        }
+        
+        .burger-menu.active span:nth-child(1) {
+            transform: rotate(45deg) translate(8px, 8px);
+        }
+        
+        .burger-menu.active span:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .burger-menu.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+        
+        .mobile-nav {
+            display: none;
+            position: fixed;
+            top: 70px;
+            left: 0;
+            right: 0;
+            background: var(--bg-white);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            z-index: 999;
+            padding: 0;
+            flex-direction: column;
+            gap: 0;
+            transform: translateY(-100%);
+            transition: transform 0.3s ease;
+            max-height: calc(100vh - 70px);
+            overflow-y: auto;
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        .mobile-nav.active {
+            transform: translateY(0);
+        }
+        
+        .mobile-nav a {
+            padding: 15px 20px;
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            border-radius: 0;
+            transition: all 0.3s ease;
+            font-size: 16px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        .mobile-nav a:hover,
+        .mobile-nav a:focus {
+            background: var(--bg-light);
+            color: var(--primary);
+        }
+        
+        .mobile-nav-cta {
+            margin-top: 10px;
+            background: var(--gradient) !important;
+            color: #fff !important;
+            text-align: center;
+            font-weight: 600;
+            padding: 14px 20px !important;
+        }
+        
+        .mobile-nav-cta:hover,
+        .mobile-nav-cta:focus {
+            background: linear-gradient(135deg, #5a3ee8 0%, #7c4afd 100%) !important;
+            color: #fff !important;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(108, 74, 254, 0.3);
+        }
+        
         /* HERO */
         
         .hero {
@@ -843,58 +942,158 @@
         }
         /* RESPONSIVE */
         
+        @media (max-width: 1024px) {
+            header nav {
+                gap: 20px;
+            }
+            
+            header .header-contacts {
+                gap: 15px;
+            }
+            
+            .why-us-content {
+                gap: 40px;
+            }
+        }
+        
         @media (max-width: 768px) {
             header {
                 padding: 15px 20px;
-                flex-wrap: wrap;
+                flex-wrap: nowrap;
             }
+            
+            .burger-menu {
+                display: flex;
+            }
+            
             .logo {
                 font-size: 20px;
                 gap: 10px;
             }
+            
             .logo-icon {
                 width: 32px;
                 height: 32px;
             }
+            
             header nav {
                 display: none;
             }
+            
+            .mobile-nav {
+                display: flex;
+                top: 65px;
+                max-height: calc(100vh - 65px);
+            }
+            
             header .header-contacts {
-                flex-direction: column;
-                gap: 10px;
-                align-items: flex-end;
+                display: none;
             }
-            header .header-phone {
-                font-size: 16px;
-            }
-            header .header-messengers {
-                gap: 8px;
-            }
-            header .messenger-icon {
-                width: 40px;
-                height: 40px;
-            }
-            header .header-cta {
-                padding: 10px 20px;
-                font-size: 14px;
-            }
+            
             .hero {
-                padding: 100px 20px 60px;
+                padding: 100px 20px 80px;
+                background-size: cover;
+                background-attachment: scroll;
             }
+            
             section {
                 padding: 60px 20px;
             }
+            
             .work-steps,
             .tariffs,
-            .advantages {
+            .advantages,
+            .why-us-text {
                 grid-template-columns: 1fr;
             }
+            
             .tariff.featured {
                 transform: scale(1);
             }
+            
+            .why-us-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .why-us-image {
+                min-height: 300px;
+            }
+            
             .calc,
             form {
                 padding: 30px 20px;
+            }
+            
+            #contact > div {
+                grid-template-columns: 1fr;
+            }
+            
+            #contact .btn-main {
+                width: 100%;
+                max-width: 100%;
+            }
+            
+            .problems {
+                padding: 40px 20px;
+            }
+            
+            .step {
+                padding: 20px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            header {
+                padding: 12px 15px;
+            }
+            
+            .logo {
+                font-size: 18px;
+                gap: 8px;
+            }
+            
+            .logo-icon {
+                width: 28px;
+                height: 28px;
+            }
+            
+            .hero h1 {
+                font-size: 28px;
+            }
+            
+            .hero p {
+                font-size: 16px;
+            }
+            
+            h2 {
+                font-size: 28px;
+            }
+            
+            .section-subtitle {
+                font-size: 16px;
+            }
+            
+            .step h3 {
+                font-size: 20px;
+            }
+            
+            .tariff {
+                padding: 30px 20px;
+            }
+            
+        }
+        
+        @media (max-width: 360px) {
+            .logo span {
+                font-size: 16px;
+            }
+            
+            .hero h1 {
+                font-size: 24px;
+            }
+            
+            .mobile-nav {
+                padding: 15px;
             }
         }
         /* SCROLL ANIMATIONS */
@@ -982,7 +1181,21 @@
             </div>
             <a href="#contact" class="header-cta">Оставить заявку</a>
         </div>
+        <button class="burger-menu" aria-label="Открыть меню" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
     </header>
+    
+    <!-- Mobile Navigation -->
+    <nav class="mobile-nav" role="navigation" aria-label="Мобильная навигация">
+        <a href="#services" aria-label="Перейти к разделу Услуги">Услуги</a>
+        <a href="#about" aria-label="Перейти к разделу О компании">О компании</a>
+        <a href="#tariffs" aria-label="Перейти к разделу Тарифы">Тарифы</a>
+        <a href="#contact" aria-label="Перейти к разделу Контакты">Контакты</a>
+        <a href="#contact-form" class="mobile-nav-cta" aria-label="Оставить заявку">Оставить заявку</a>
+    </nav>
 
     <!-- HERO -->
     <section class="hero" role="banner">
@@ -1151,6 +1364,11 @@
         <h2 class="scroll-reveal">Контакты</h2>
         <p class="section-subtitle scroll-reveal">Свяжитесь с нами любым удобным способом</p>
 
+        <!-- Кнопка выше контактов -->
+        <div class="scroll-reveal" style="text-align: center; margin: 40px auto 60px; max-width: 400px;">
+            <a href="#contact-form" class="btn-main" style="display: inline-block; width: 100%; text-align: center;">Оставить заявку</a>
+        </div>
+
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; margin-top: 60px;">
             <!-- Контактная информация -->
             <div class="scroll-reveal" style="background: var(--bg-light); padding: 40px; border-radius: 20px;">
@@ -1206,7 +1424,7 @@
             </div>
 
             <!-- Форма обратной связи -->
-            <div class="scroll-reveal" style="background: var(--bg-light); padding: 40px; border-radius: 20px;">
+            <div id="contact-form" class="scroll-reveal" style="background: var(--bg-light); padding: 40px; border-radius: 20px;">
                 <h3 style="font-size: 24px; margin-bottom: 20px; color: var(--text);">Оставить заявку</h3>
                 <p style="color: var(--text-light); font-size: 16px; line-height: 1.6; margin-bottom: 25px;">
                     Рассчитать стоимость можно оставив заявку в этой форме, мы свяжемся с вами и подробно проконсультируем
@@ -1223,6 +1441,11 @@
                     <button type="submit" aria-label="Отправить заявку на расчёт стоимости">Отправить заявку</button>
                 </form>
             </div>
+        </div>
+        
+        <!-- Кнопка ниже контактов -->
+        <div class="scroll-reveal" style="text-align: center; margin: 60px auto 0; max-width: 400px;">
+            <a href="#contact-form" class="btn-main" style="display: inline-block; width: 100%; text-align: center;">Оставить заявку</a>
         </div>
     </section>
 
@@ -1298,6 +1521,44 @@
         document.querySelectorAll('.scroll-reveal').forEach(el => {
             observer.observe(el);
         });
+
+        // Бургер-меню
+        const burgerMenu = document.querySelector('.burger-menu');
+        const mobileNav = document.querySelector('.mobile-nav');
+        const body = document.body;
+
+        function toggleMenu() {
+            const isActive = burgerMenu.classList.toggle('active');
+            mobileNav.classList.toggle('active');
+            burgerMenu.setAttribute('aria-expanded', isActive);
+            body.style.overflow = isActive ? 'hidden' : '';
+        }
+
+        if (burgerMenu) {
+            burgerMenu.addEventListener('click', toggleMenu);
+            
+            // Закрытие меню при клике на ссылку
+            mobileNav.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', function() {
+                    burgerMenu.classList.remove('active');
+                    mobileNav.classList.remove('active');
+                    burgerMenu.setAttribute('aria-expanded', 'false');
+                    body.style.overflow = '';
+                });
+            });
+
+            // Закрытие меню при клике вне его
+            document.addEventListener('click', function(e) {
+                if (mobileNav.classList.contains('active') && 
+                    !mobileNav.contains(e.target) && 
+                    !burgerMenu.contains(e.target)) {
+                    burgerMenu.classList.remove('active');
+                    mobileNav.classList.remove('active');
+                    burgerMenu.setAttribute('aria-expanded', 'false');
+                    body.style.overflow = '';
+                }
+            });
+        }
     </script>
 
 </body>
