@@ -1,0 +1,1305 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <title>FulfillPro — Фулфилмент для маркетплейсов в Москве и Краснодаре | За 48 часов</title>
+    <meta name="description" content="Фулфилмент-услуги для Wildberries, Яндекс Маркет и Ozon. Приёмка, упаковка, отгрузка товаров за 48 часов. Страхование груза, персональный менеджер, работа с любыми товарами. Тарифы от 19₽ за заказ.">
+    <meta name="keywords" content="фулфилмент, маркетплейсы, Wildberries, Ozon, Яндекс Маркет, логистика, упаковка товаров, склад">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="FulfillPro — Фулфилмент для маркетплейсов за 48 часов">
+    <meta property="og:description" content="Фулфилмент-услуги для Wildberries, Яндекс Маркет и Ozon в Москве и Краснодаре. Приёмка, упаковка, отгрузка товаров.">
+    <meta property="og:type" content="website">
+    <link rel="canonical" href="https://fulfillpro.ru">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+         :root {
+            --primary: #6C4AFE;
+            --primary-dark: #5a3ee8;
+            --secondary: #FF6B6B;
+            --accent: #4ECDC4;
+            --text: #2d3748;
+            --text-light: #718096;
+            --bg-light: #f7fafc;
+            --bg-white: #ffffff;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
+            --shadow-lg: 0 20px 25px rgba(0, 0, 0, 0.1);
+            --gradient: linear-gradient(135deg, #6C4AFE 0%, #8B5CF6 100%);
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            background: var(--bg-white);
+            color: var(--text);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        /* HEADER */
+        
+        header {
+            width: 100%;
+            padding: 18px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(12px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+        }
+        
+        header.scrolled {
+            padding: 12px 40px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 24px;
+            font-weight: 700;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            flex-shrink: 0;
+        }
+        
+        .logo-icon svg {
+            width: 100%;
+            height: 100%;
+            filter: drop-shadow(0 2px 4px rgba(108, 74, 254, 0.3));
+            transition: transform 0.3s ease;
+        }
+        
+        .logo:hover .logo-icon svg {
+            transform: rotateY(15deg) rotateX(5deg);
+            filter: drop-shadow(0 4px 8px rgba(108, 74, 254, 0.4));
+        }
+        
+        header nav {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+        
+        header nav a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            font-size: 15px;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+        
+        header nav a:hover {
+            color: var(--primary);
+        }
+        
+        header nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient);
+            transition: width 0.3s ease;
+        }
+        
+        header nav a:hover::after {
+            width: 100%;
+        }
+        
+        header .header-contacts {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        header .header-phone {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--text);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        header .header-phone:hover {
+            color: var(--primary);
+        }
+        
+        header .header-messengers {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+        
+        header .messenger-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        header .messenger-icon.whatsapp {
+            background: #E8F5E9;
+        }
+        
+        header .messenger-icon.telegram {
+            background: #E3F2FD;
+        }
+        
+        header .messenger-icon:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+        
+        header .messenger-icon svg {
+            width: 24px;
+            height: 24px;
+        }
+        
+        header .header-cta {
+            padding: 12px 28px;
+            background: var(--gradient);
+            color: #fff;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(108, 74, 254, 0.3);
+            white-space: nowrap;
+        }
+        
+        header .header-cta:hover {
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: 0 6px 20px rgba(108, 74, 254, 0.5);
+            background: linear-gradient(135deg, #5a3ee8 0%, #7c4afd 100%);
+        }
+        
+        header .header-cta:active {
+            transform: translateY(0) scale(1);
+        }
+        /* HERO */
+        
+        .hero {
+            min-height: 100vh;
+            max-width: 100%;
+            background-image: url('./images/image.png');
+            background-size: 100% 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-color: #6C4AFE;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            padding: 120px 40px 80px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7));
+            z-index: 0;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            animation: fadeInUp 0.8s ease;
+        }
+        
+        .hero h1 {
+            font-size: clamp(32px, 5vw, 56px);
+            margin-bottom: 24px;
+            font-weight: 800;
+            line-height: 1.2;
+            text-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .hero p {
+            font-size: clamp(18px, 2.5vw, 22px);
+            margin-bottom: 40px;
+            opacity: 0.95;
+            line-height: 1.6;
+        }
+        
+        .btn-main {
+            padding: 16px 40px;
+            background: #fff;
+            color: var(--primary);
+            border-radius: 12px;
+            font-size: 18px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+        
+        .btn-main:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4);
+            background: #f8f9fa;
+        }
+        
+        .btn-main:active {
+            transform: translateY(-1px) scale(1.02);
+        }
+        /* SECTION */
+        
+        section {
+            padding: 100px 40px;
+            max-width: 1200px;
+            margin: auto;
+        }
+        
+        h2 {
+            font-size: clamp(28px, 4vw, 42px);
+            margin-bottom: 20px;
+            text-align: center;
+            font-weight: 700;
+            color: var(--text);
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 60px;
+            font-size: 18px;
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+        /* ABOUT SECTION */
+        
+        #about {
+            background-image: url('./images/image 5.png');
+            max-width: 100%;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: relative;
+        }
+        
+        #about::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.85);
+            z-index: 0;
+        }
+        
+        #about>* {
+            position: relative;
+            z-index: 1;
+        }
+        /* PROBLEMS */
+        
+        .problems {
+            background: var(--bg-light);
+            padding: 60px 40px;
+            border-radius: 20px;
+            margin-top: 40px;
+        }
+        
+        .problems ul {
+            max-width: 800px;
+            margin: auto;
+            list-style: none;
+        }
+        
+        .problems li {
+            font-size: 18px;
+            line-height: 1.8;
+            padding: 16px 0 16px 50px;
+            position: relative;
+            color: var(--text);
+            transition: transform 0.3s ease;
+        }
+        
+        .problems li:hover {
+            transform: translateX(10px);
+        }
+        
+        .problems li::before {
+            content: '❌';
+            position: absolute;
+            left: 0;
+            font-size: 24px;
+        }
+        /* WORK STEPS */
+        
+        .work-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+        
+        .step {
+            text-align: center;
+            padding: 30px;
+            background: var(--bg-white);
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .step::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient);
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+        
+        .step:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .step:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .step-number {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            background: var(--gradient);
+            color: white;
+            border-radius: 50%;
+            line-height: 50px;
+            font-weight: 700;
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .step img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            transition: transform 0.4s ease;
+        }
+        
+        .step:hover img {
+            transform: scale(1.05);
+        }
+        
+        .step h3 {
+            font-size: 24px;
+            margin-bottom: 12px;
+            font-weight: 600;
+            color: var(--text);
+        }
+        
+        .step p {
+            color: var(--text-light);
+            line-height: 1.7;
+            font-size: 16px;
+        }
+        /* ADVANTAGES */
+        
+        .advantages {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 50px;
+        }
+        
+        .adv {
+            padding: 30px 25px;
+            background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+            border-radius: 16px;
+            font-size: 17px;
+            text-align: center;
+            font-weight: 500;
+            color: var(--text);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .adv::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(108, 74, 254, 0.1) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .adv:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+            box-shadow: 0 10px 30px rgba(108, 74, 254, 0.15);
+        }
+        
+        .adv:hover::before {
+            opacity: 1;
+        }
+        /* WHY US SECTION */
+        
+        #why-us {
+            background: var(--bg-white);
+            color: var(--text);
+            padding: 100px 40px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        #why-us h2 {
+            color: var(--text);
+            margin-bottom: 50px;
+        }
+        
+        .why-us-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .why-us-text {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+        
+        .why-us-item {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .why-us-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--bg-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+        
+        .why-us-item h3 {
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 10px;
+        }
+        
+        .why-us-item p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--text-light);
+        }
+        
+        .why-us-image {
+            width: 100%;
+            height: 100%;
+            min-height: 500px;
+            object-fit: cover;
+            border-radius: 20px;
+        }
+        
+        @media (max-width: 968px) {
+            .why-us-content {
+                grid-template-columns: 1fr;
+            }
+            .why-us-text {
+                grid-template-columns: 1fr;
+            }
+            .why-us-image {
+                min-height: 400px;
+            }
+        }
+        /* TARIFFS */
+        
+        .tariffs {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+        
+        .tariff {
+            padding: 40px 30px;
+            background: var(--bg-white);
+            border: 2px solid #e2e8f0;
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.4s ease;
+            position: relative;
+        }
+        
+        .tariff:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .tariff.featured {
+            background: var(--gradient);
+            color: white;
+            border-color: transparent;
+            transform: scale(1.05);
+        }
+        
+        .tariff.featured h3,
+        .tariff.featured .price,
+        .tariff.featured li {
+            color: white;
+        }
+        
+        .tariff.featured:hover {
+            transform: scale(1.08) translateY(-5px);
+        }
+        
+        .tariff h3 {
+            margin-bottom: 15px;
+            font-size: 28px;
+            font-weight: 700;
+        }
+        
+        .price {
+            font-size: 36px;
+            font-weight: 800;
+            color: var(--primary);
+            margin: 20px 0;
+        }
+        
+        .tariff ul {
+            text-align: left;
+            margin-top: 25px;
+            line-height: 2;
+            list-style: none;
+        }
+        
+        .tariff li {
+            padding: 8px 0 8px 30px;
+            position: relative;
+            font-size: 16px;
+        }
+        
+        .tariff li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
+            font-size: 20px;
+        }
+        
+        .tariff.featured li::before {
+            color: white;
+        }
+        /* CONTACT LINKS */
+        
+        #contact a {
+            transition: all 0.3s ease;
+        }
+        
+        #contact a:hover {
+            opacity: 0.8;
+            text-decoration: underline;
+        }
+        /* CALCULATOR */
+        
+        .calc {
+            max-width: 500px;
+            margin: 50px auto 0;
+            background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+        }
+        
+        .calc label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--text);
+            font-size: 15px;
+        }
+        
+        .calc input,
+        .calc select {
+            width: 100%;
+            padding: 14px 18px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            border: 2px solid #e2e8f0;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            background: white;
+        }
+        
+        .calc input:focus,
+        .calc select:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(108, 74, 254, 0.1);
+        }
+        
+        .calc button {
+            width: 100%;
+            padding: 16px;
+            background: var(--gradient);
+            border: none;
+            color: #fff;
+            font-size: 18px;
+            font-weight: 600;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(108, 74, 254, 0.3);
+        }
+        
+        .calc button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(108, 74, 254, 0.4);
+        }
+        
+        .calc-result {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            text-align: center;
+            font-size: 28px;
+            font-weight: 700;
+            margin-top: 20px;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+        /* FORM */
+        
+        form {
+            max-width: 600px;
+            margin: 50px auto 0;
+            background: var(--bg-light);
+            padding: 40px;
+            border-radius: 20px;
+        }
+        
+        form input,
+        form textarea {
+            width: 100%;
+            padding: 16px 20px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            border: 2px solid #e2e8f0;
+            font-size: 16px;
+            font-family: inherit;
+            transition: all 0.3s ease;
+            background: white;
+        }
+        
+        form input:focus,
+        form textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(108, 74, 254, 0.1);
+        }
+        
+        form textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        
+        form button {
+            width: 100%;
+            padding: 18px;
+            background: var(--gradient);
+            border: none;
+            color: #fff;
+            font-size: 18px;
+            font-weight: 600;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(108, 74, 254, 0.3);
+        }
+        
+        form button:hover {
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: 0 6px 20px rgba(108, 74, 254, 0.5);
+            background: linear-gradient(135deg, #5a3ee8 0%, #7c4afd 100%);
+        }
+        
+        form button:active {
+            transform: translateY(0) scale(0.98);
+        }
+        /* FOOTER */
+        
+        footer {
+            padding: 60px 40px;
+            background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
+            color: #e2e8f0;
+            text-align: center;
+            margin-top: 80px;
+        }
+        
+        footer p {
+            margin: 10px 0;
+            font-size: 16px;
+        }
+        
+        footer .footer-nav {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+        
+        footer .footer-nav a {
+            color: #e2e8f0;
+            text-decoration: none;
+            font-size: 16px;
+            transition: color 0.3s ease;
+        }
+        
+        footer .footer-nav a:hover {
+            color: #fff;
+            text-decoration: underline;
+        }
+        /* ANIMATIONS */
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .fade-in {
+            animation: fadeInUp 0.6s ease;
+        }
+        /* RESPONSIVE */
+        
+        @media (max-width: 768px) {
+            header {
+                padding: 15px 20px;
+                flex-wrap: wrap;
+            }
+            .logo {
+                font-size: 20px;
+                gap: 10px;
+            }
+            .logo-icon {
+                width: 32px;
+                height: 32px;
+            }
+            header nav {
+                display: none;
+            }
+            header .header-contacts {
+                flex-direction: column;
+                gap: 10px;
+                align-items: flex-end;
+            }
+            header .header-phone {
+                font-size: 16px;
+            }
+            header .header-messengers {
+                gap: 8px;
+            }
+            header .messenger-icon {
+                width: 40px;
+                height: 40px;
+            }
+            header .header-cta {
+                padding: 10px 20px;
+                font-size: 14px;
+            }
+            .hero {
+                padding: 100px 20px 60px;
+            }
+            section {
+                padding: 60px 20px;
+            }
+            .work-steps,
+            .tariffs,
+            .advantages {
+                grid-template-columns: 1fr;
+            }
+            .tariff.featured {
+                transform: scale(1);
+            }
+            .calc,
+            form {
+                padding: 30px 20px;
+            }
+        }
+        /* SCROLL ANIMATIONS */
+        
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+        
+        .scroll-reveal.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        /* ACCESSIBILITY */
+        
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
+        /* FOCUS STYLES FOR ACCESSIBILITY */
+        
+        a:focus,
+        button:focus,
+        input:focus,
+        textarea:focus,
+        select:focus {
+            outline: 3px solid var(--primary);
+            outline-offset: 2px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header role="banner">
+        <a href="#" class="logo" aria-label="На главную">
+            <div class="logo-icon">
+                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="boxGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#6C4AFE;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#8B5CF6;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    <!-- Изометрическая коробка -->
+                    <!-- Верхняя грань -->
+                    <polygon points="50,20 80,35 50,50 20,35" fill="url(#boxGradient)" opacity="0.9"/>
+                    <!-- Правая грань -->
+                    <polygon points="80,35 80,65 50,80 50,50" fill="url(#boxGradient)" opacity="0.7"/>
+                    <!-- Левая грань -->
+                    <polygon points="20,35 50,50 50,80 20,65" fill="url(#boxGradient)" opacity="0.8"/>
+                    <!-- Y-символ в центре -->
+                    <path d="M 50 35 L 50 50 M 50 35 L 35 42 M 50 35 L 65 42" stroke="#fff" stroke-width="3" stroke-linecap="round" fill="none" opacity="0.9"/>
+                </svg>
+            </div>
+            <span>FulfillPro</span>
+        </a>
+        <nav role="navigation" aria-label="Основная навигация">
+            <a href="#services" aria-label="Перейти к разделу Услуги">Услуги</a>
+            <a href="#about" aria-label="Перейти к разделу О компании">О компании</a>
+            <a href="#tariffs" aria-label="Перейти к разделу Тарифы">Тарифы</a>
+            <a href="#contact" aria-label="Перейти к разделу Контакты">Контакты</a>
+        </nav>
+        <div class="header-contacts">
+            <a href="tel:+79126305050" class="header-phone">+7 (912) 630-50-50</a>
+            <div class="header-messengers">
+                <a href="https://wa.me/79126305050" class="messenger-icon whatsapp" target="_blank" title="WhatsApp">
+                    <svg viewBox="0 0 24 24" fill="#25D366">
+                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+                    </svg>
+                </a>
+                <a href="https://t.me/+79126305050" class="messenger-icon telegram" target="_blank" title="Telegram">
+                    <svg viewBox="0 0 24 24" fill="#0088cc">
+                        <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.559z"/>
+                    </svg>
+                </a>
+            </div>
+            <a href="#contact" class="header-cta">Оставить заявку</a>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero" role="banner">
+        <div class="hero-content">
+            <h1>Освободите время — мы возьмём на себя всю логистику</h1>
+            <p style="font-size: clamp(20px, 3vw, 24px); margin-bottom: 20px; font-weight: 600;">В Москве и Краснодаре "под ключ" за 48 часов</p>
+            <p style="font-size: clamp(16px, 2.5vw, 18px);">Фулфилмент для Wildberries, Яндекс Маркет и Ozon: приёмка, упаковка, отгрузка. Работаем с любыми товарами, включая бытовую химию.</p>
+            <a class="btn-main" href="#contact" aria-label="Рассчитать стоимость фулфилмента">Рассчитать стоимость</a>
+        </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services">
+        <h2 class="scroll-reveal">Услуги</h2>
+        <p class="section-subtitle scroll-reveal">Простой и прозрачный процесс от приёмки до отгрузки</p>
+
+        <div class="work-steps">
+
+            <div class="step scroll-reveal">
+                <div class="step-number">1</div>
+                <img src="./images/image2.png" alt="Процесс приёмки товаров на складе FulfillPro" loading="lazy">
+                <h3>Приёмка</h3>
+                <p>Проверяем количество, качество, маркируем товары и вносим в систему. Полная отчётность по каждому поступлению. Время приёмки: до 24 часов с момента поступления.</p>
+            </div>
+
+            <div class="step scroll-reveal">
+                <div class="step-number">2</div>
+                <img src="./images/image3.png" alt="Профессиональная упаковка товаров по стандартам маркетплейсов" loading="lazy">
+                <h3>Упаковка</h3>
+                <p>Упаковка по стандартам маркетплейсов. Аккуратно, быстро, надёжно. Соответствие всем требованиям WB, Ozon и Яндекс Маркет. 100% соответствие стандартам упаковки.</p>
+            </div>
+
+            <div class="step scroll-reveal">
+                <div class="step-number">3</div>
+                <img src="./images/image4.png" alt="Отгрузка товаров на маркетплейсы Wildberries, Ozon и Яндекс Маркет" loading="lazy">
+                <h3>Отгрузка</h3>
+                <p>Сборка заказов и ежедневные передачи в WB/Ozon/Яндекс Маркет. Отгрузка в тот же день при поступлении до 15:00. Гарантия отсутствия ошибок в отгрузках.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- PROBLEMS -->
+    <section id="problems">
+        <h2 class="scroll-reveal">Вы устали от рутины?</h2>
+        <p class="section-subtitle scroll-reveal">Логистика отнимает время, силы и снижает ваш потенциал роста.</p>
+        <div class="problems scroll-reveal">
+            <ul>
+                <li>Постоянная упаковка забирает часы каждый день</li>
+                <li>Ошибки в отгрузках → штрафы маркетплейсов</li>
+                <li>Нехватка места и бардак на складе</li>
+                <li>Падает рейтинг из-за задержек доставки</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+        <h2 class="scroll-reveal">О компании</h2>
+        <p class="section-subtitle scroll-reveal">FulfillPro — ваш надёжный партнёр в логистике</p>
+
+        <div style="max-width: 900px; margin: 50px auto 0; text-align: center;">
+            <div class="scroll-reveal" style="background: var(--bg-light); padding: 40px; border-radius: 20px; margin-bottom: 30px;">
+                <p style="font-size: 18px; line-height: 1.8; color: var(--text);">
+                    Мы специализируемся на фулфилменте для маркетплейсов Wildberries, Ozon и Яндекс Маркет. Наша команда имеет более 5 лет опыта работы в логистике и знает все тонкости работы с крупнейшими маркетплейсами России. Обработали более 1 000 000 заказов, работаем
+                    с 500+ селлерами.
+                </p>
+            </div>
+
+            <div class="advantages scroll-reveal">
+                <div class="adv">⚡ Отгрузка в тот же день</div>
+                <div class="adv">👤 Личный менеджер 24/7</div>
+                <div class="adv">📊 Прозрачная отчётность</div>
+                <div class="adv">💰 Выгодные тарифы</div>
+                <div class="adv">📦 Аккуратная упаковка</div>
+                <div class="adv">✅ Без ошибок и штрафов</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHY US -->
+    <section id="why-us">
+        <h2 class="scroll-reveal">Почему именно мы?</h2>
+
+        <div class="why-us-content">
+            <div class="why-us-text scroll-reveal">
+                <div class="why-us-item">
+                    <div class="why-us-icon">🛡️</div>
+                    <h3>Страхование груза</h3>
+                    <p>Оберегаем продавцов маркетплейсов от убытков: в обязательном порядке страхуем все товары и несем ответственность за их сохранность во время хранения и доставки.</p>
+                </div>
+
+                <div class="why-us-item">
+                    <div class="why-us-icon">💬</div>
+                    <h3>Персональный подход</h3>
+                    <p>Вникаем в ситуацию каждого селлера, помогаем найти нестандартное решение и реализовать любой, даже самый сложный запрос.</p>
+                </div>
+
+                <div class="why-us-item">
+                    <div class="why-us-icon">📦</div>
+                    <h3>Любые товары</h3>
+                    <p>Работаем со всеми категориями товаров любых габаритов. Храним у себя товары, которые маркетплейсы запрещают размещать на своих складах (например, бытовая химия).</p>
+                </div>
+
+                <div class="why-us-item">
+                    <div class="why-us-icon">🚚</div>
+                    <h3>Гибкая логистика</h3>
+                    <p>Выстраиваем логистику самостоятельно и с помощью проверенных транспортных компаний. Сами осуществляем быстрые прямые поставки в Электросталь и Казань.</p>
+                </div>
+            </div>
+
+            <div class="scroll-reveal">
+                <img src="./images/image6.png" alt="Почему выбирают нас" class="why-us-image">
+            </div>
+        </div>
+    </section>
+
+    <!-- TARIFFS -->
+    <section id="tariffs">
+        <h2 class="scroll-reveal">Тарифы</h2>
+        <p class="section-subtitle scroll-reveal">Выберите план, который подходит вашему бизнесу</p>
+
+        <div class="tariffs">
+
+            <div class="tariff scroll-reveal">
+                <h3>Старт</h3>
+                <div class="price">39 ₽</div>
+                <p style="color: var(--text-light); margin-bottom: 20px;">за заказ</p>
+                <ul>
+                    <li>Обработка заказа: 39 ₽</li>
+                    <li>Хранение: 0 ₽ (первые 5 дней)</li>
+                    <li>Приёмка: 5 ₽ за единицу</li>
+                    <li>Минимум: 50 заказов/месяц</li>
+                </ul>
+            </div>
+
+            <div class="tariff featured scroll-reveal">
+                <h3>Бизнес</h3>
+                <div class="price">29 ₽</div>
+                <p style="opacity: 0.9; margin-bottom: 20px;">за заказ</p>
+                <ul>
+                    <li>Обработка заказа: 29 ₽</li>
+                    <li>Хранение: 3 ₽/день</li>
+                    <li>Приёмка: 3 ₽ за единицу</li>
+                    <li>Минимум: 200 заказов/месяц</li>
+                </ul>
+            </div>
+
+            <div class="tariff scroll-reveal">
+                <h3>Премиум</h3>
+                <div class="price">19 ₽</div>
+                <p style="color: var(--text-light); margin-bottom: 20px;">за заказ</p>
+                <ul>
+                    <li>Обработка заказа: 19 ₽</li>
+                    <li>Хранение: 2 ₽/день</li>
+                    <li>Приёмка: бесплатно</li>
+                    <li>Минимум: 500 заказов/месяц</li>
+                </ul>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+        <h2 class="scroll-reveal">Контакты</h2>
+        <p class="section-subtitle scroll-reveal">Свяжитесь с нами любым удобным способом</p>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; margin-top: 60px;">
+            <!-- Контактная информация -->
+            <div class="scroll-reveal" style="background: var(--bg-light); padding: 40px; border-radius: 20px;">
+                <h3 style="font-size: 24px; margin-bottom: 30px; color: var(--text);">Наши контакты</h3>
+
+                <div style="margin-bottom: 25px;">
+                    <div style="display: flex; align-items: start; gap: 15px;">
+                        <span style="font-size: 24px;">📍</span>
+                        <div>
+                            <div style="font-weight: 600; margin-bottom: 5px; color: var(--text);">Адрес (Москва):</div>
+                            <div style="color: var(--text-light); line-height: 1.6;">
+                                г. Москва<br> ул. Логистическая, д. 15<br> Складской комплекс "Фулфилмент"
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="margin-bottom: 25px;">
+                    <div style="display: flex; align-items: start; gap: 15px;">
+                        <span style="font-size: 24px;">📍</span>
+                        <div>
+                            <div style="font-weight: 600; margin-bottom: 5px; color: var(--text);">Адрес (Краснодар):</div>
+                            <div style="color: var(--text-light); line-height: 1.6;">
+                                г. Краснодар<br> ул. Складская, д. 8<br> Складской комплекс "Фулфилмент Юг"
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="margin-bottom: 25px;">
+                    <div style="display: flex; align-items: start; gap: 15px;">
+                        <span style="font-size: 24px;">📞</span>
+                        <div>
+                            <div style="font-weight: 600; margin-bottom: 5px; color: var(--text);">Телефон:</div>
+                            <a href="tel:+79991234567" style="color: var(--primary); text-decoration: none; font-size: 18px; font-weight: 500;">
+                                +7 (999) 123-45-67
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <div style="display: flex; align-items: start; gap: 15px;">
+                        <span style="font-size: 24px;">✉️</span>
+                        <div>
+                            <div style="font-weight: 600; margin-bottom: 5px; color: var(--text);">Email:</div>
+                            <a href="mailto:info@fulfillpro.ru" style="color: var(--primary); text-decoration: none; font-size: 18px; font-weight: 500;">
+                                info@fulfillpro.ru
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Форма обратной связи -->
+            <div class="scroll-reveal" style="background: var(--bg-light); padding: 40px; border-radius: 20px;">
+                <h3 style="font-size: 24px; margin-bottom: 20px; color: var(--text);">Оставить заявку</h3>
+                <p style="color: var(--text-light); font-size: 16px; line-height: 1.6; margin-bottom: 25px;">
+                    Рассчитать стоимость можно оставив заявку в этой форме, мы свяжемся с вами и подробно проконсультируем
+                </p>
+                <form onsubmit="handleSubmit(event)" aria-label="Форма обратной связи">
+                    <label for="name" class="sr-only">Ваше имя</label>
+                    <input type="text" id="name" name="name" placeholder="Ваше имя" required aria-required="true">
+                    <label for="phone" class="sr-only">Телефон или WhatsApp</label>
+                    <input type="tel" id="phone" name="phone" placeholder="Телефон или WhatsApp" required aria-required="true">
+                    <label for="email" class="sr-only">Email</label>
+                    <input type="email" id="email" name="email" placeholder="Email (необязательно)" aria-label="Email адрес">
+                    <label for="comment" class="sr-only">Комментарий или вопросы</label>
+                    <textarea id="comment" name="comment" placeholder="Комментарий или вопросы" aria-label="Ваш комментарий или вопросы"></textarea>
+                    <button type="submit" aria-label="Отправить заявку на расчёт стоимости">Отправить заявку</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function handleSubmit(event) {
+            event.preventDefault();
+            const name = document.getElementById("name").value;
+            const phone = document.getElementById("phone").value;
+            const email = document.getElementById("email").value;
+            const comment = document.getElementById("comment").value;
+
+            // Здесь можно добавить отправку на сервер
+            alert(`Спасибо, ${name}! Мы свяжемся с вами по телефону ${phone} в ближайшее время.`);
+
+            // Очистка формы
+            event.target.reset();
+        }
+    </script>
+
+    <!-- FOOTER -->
+    <footer role="contentinfo">
+        <p style="font-size: 20px; font-weight: 600; margin-bottom: 15px;">FulfillPro</p>
+        <nav class="footer-nav" role="navigation" aria-label="Навигация в футере">
+            <a href="#services" aria-label="Перейти к разделу Услуги">Услуги</a>
+            <a href="#about" aria-label="Перейти к разделу О компании">О компании</a>
+            <a href="#tariffs" aria-label="Перейти к разделу Тарифы">Тарифы</a>
+            <a href="#contact" aria-label="Перейти к разделу Контакты">Контакты</a>
+        </nav>
+        <p>© 2025 Все права защищены</p>
+        <p style="margin-top: 10px; opacity: 0.8;">Москва, Краснодар | Wildberries, Яндекс Маркет & Ozon</p>
+    </footer>
+
+    <script>
+        // Плавная прокрутка для навигации
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Изменение header при скролле
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Анимация появления элементов при скролле
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('revealed');
+                }
+            });
+        }, observerOptions);
+
+        // Наблюдаем за всеми элементами с классом scroll-reveal
+        document.querySelectorAll('.scroll-reveal').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+
+</body>
+
+</html>
