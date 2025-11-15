@@ -459,7 +459,7 @@
         .hero {
             min-height: 100vh;
             max-width: 100%;
-            background-image: url('./images/image.png');
+            background-image: url('./images/image11.png');
             background-size: 100% 100%;
             background-position: center;
             background-repeat: no-repeat;
@@ -485,16 +485,19 @@
         }
         
         .hero-content {
-            max-width: 800px;
+            max-width: 1200px;
             text-align: center;
             position: relative;
             z-index: 2;
             animation: fadeInUp 0.8s ease;
+            width: 100%;
+            padding: 0 20px;
+            margin-top: 120px;
         }
         
         .hero h1 {
             font-size: clamp(32px, 5vw, 56px);
-            margin-bottom: 24px;
+            margin-bottom: 16px;
             font-weight: 800;
             line-height: 1.2;
             text-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
@@ -528,6 +531,19 @@
         
         .btn-main:active {
             transform: translateY(-1px) scale(1.02);
+        }
+        /* Hero stats section */
+        
+        .hero-stats {
+            background: none !important;
+            padding: 60px 0 0 0 !important;
+            margin: 60px 0 0 0 !important;
+            width: 100%;
+        }
+        
+        .hero-stats .stats-container {
+            max-width: 100%;
+            padding: 0;
         }
         /* SECTION */
         
@@ -1453,19 +1469,16 @@
                 overflow-x: auto;
                 -webkit-overflow-scrolling: touch;
             }
-            
             .tariffs-table {
                 min-width: 600px;
                 font-size: 13px;
                 border-radius: 0;
             }
-            
             .tariffs-table th {
                 padding: 12px 8px;
                 font-size: 12px;
                 white-space: nowrap;
             }
-            
             .tariffs-table th:first-child {
                 min-width: 180px;
                 position: sticky;
@@ -1473,12 +1486,10 @@
                 background: linear-gradient(135deg, var(--primary) 0%, #8B5CF6 100%);
                 z-index: 10;
             }
-            
             .tariffs-table td {
                 padding: 12px 8px;
                 font-size: 12px;
             }
-            
             .tariffs-table td:first-child {
                 position: sticky;
                 left: 0;
@@ -1486,25 +1497,20 @@
                 z-index: 5;
                 min-width: 180px;
             }
-            
             .tariffs-table tbody tr:hover td:first-child {
                 background: var(--bg-light);
             }
-            
             .size-name {
                 font-size: 14px;
                 margin-bottom: 4px;
             }
-            
             .size-specs {
                 font-size: 11px;
                 line-height: 1.4;
             }
-            
             .price-value {
                 font-size: 14px;
             }
-            
             .price-unit {
                 font-size: 11px;
             }
@@ -1514,30 +1520,24 @@
             .tariffs-table-wrapper {
                 margin: 30px -15px 0;
             }
-            
             .tariffs-table {
                 min-width: 550px;
                 font-size: 12px;
             }
-            
             .tariffs-table th {
                 padding: 10px 6px;
                 font-size: 11px;
             }
-            
             .tariffs-table td {
                 padding: 10px 6px;
                 font-size: 11px;
             }
-            
             .size-name {
                 font-size: 13px;
             }
-            
             .size-specs {
                 font-size: 10px;
             }
-            
             .price-value {
                 font-size: 13px;
             }
@@ -1867,6 +1867,10 @@
                 background-size: cover;
                 background-attachment: scroll;
             }
+            .hero-stats {
+                padding: 30px 0 0 0 !important;
+                margin: 30px 0 0 0 !important;
+            }
             section {
                 padding: 60px 20px;
             }
@@ -2131,10 +2135,40 @@
     <!-- HERO -->
     <section class="hero" role="banner">
         <div class="hero-content">
-            <h1>Освободите время — мы возьмём на себя всю логистику</h1>
-            <p style="font-size: clamp(20px, 3vw, 24px); margin-bottom: 20px; font-weight: 600;">"Под ключ" за 48 часов</p>
-            <p style="font-size: clamp(16px, 2.5vw, 18px);">Фулфилмент для Wildberries, Яндекс Маркет и Ozon: приёмка, упаковка, отгрузка. Работаем с любыми товарами, включая бытовую химию.</p>
+            <h1>Фулфилмент полного цикла для ТОП маркетплейсов</h1>
+            <p style="font-size: clamp(16px, 2.5vw, 20px); margin-bottom: 12px; font-weight: 500;">Снижаем расходы селлеров на ведение бизнеса на маркетплейсах</p>
+            <p style="font-size: clamp(18px, 2.5vw, 22px); margin-bottom: 8px; font-weight: 600;">Яндекс Маркет и Ozon:</p>
+            <p style="font-size: clamp(16px, 2.5vw, 18px); margin-bottom: 30px;">приёмка, упаковка, отгрузка. Работаем с любыми товарами, включая бытовую химию</p>
             <a class="btn-main" href="#contact" aria-label="Рассчитать стоимость фулфилмента">Рассчитать стоимость</a>
+
+            <!-- STATS SECTION - Блок статистики и достижений -->
+            <div class="stats-section hero-stats">
+                <div class="stats-container">
+                    <div class="stat-item scroll-reveal">
+                        <div class="stat-number">1 000 000+</div>
+                        <div class="stat-label">Заказов обработано</div>
+                        <div class="stat-description">Более миллиона успешных отгрузок</div>
+                    </div>
+
+                    <div class="stat-item scroll-reveal">
+                        <div class="stat-number">500+</div>
+                        <div class="stat-label">Активных селлеров</div>
+                        <div class="stat-description">Доверяют нам свою логистику</div>
+                    </div>
+
+                    <div class="stat-item scroll-reveal">
+                        <div class="stat-number">5+</div>
+                        <div class="stat-label">Лет опыта</div>
+                        <div class="stat-description">В логистике и фулфилменте</div>
+                    </div>
+
+                    <div class="stat-item scroll-reveal">
+                        <div class="stat-number">48</div>
+                        <div class="stat-label">Часов обработка</div>
+                        <div class="stat-description">От приёмки до отгрузки</div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -2214,35 +2248,6 @@
                 <div class="adv">💰 Выгодные тарифы</div>
                 <div class="adv">📦 Аккуратная упаковка</div>
                 <div class="adv">✅ Без ошибок и штрафов</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- STATS SECTION - Блок статистики и достижений -->
-    <section class="stats-section">
-        <div class="stats-container">
-            <div class="stat-item scroll-reveal">
-                <div class="stat-number">1 000 000+</div>
-                <div class="stat-label">Заказов обработано</div>
-                <div class="stat-description">Более миллиона успешных отгрузок</div>
-            </div>
-
-            <div class="stat-item scroll-reveal">
-                <div class="stat-number">500+</div>
-                <div class="stat-label">Активных селлеров</div>
-                <div class="stat-description">Доверяют нам свою логистику</div>
-            </div>
-
-            <div class="stat-item scroll-reveal">
-                <div class="stat-number">5+</div>
-                <div class="stat-label">Лет опыта</div>
-                <div class="stat-description">В логистике и фулфилменте</div>
-            </div>
-
-            <div class="stat-item scroll-reveal">
-                <div class="stat-number">48</div>
-                <div class="stat-label">Часов обработка</div>
-                <div class="stat-description">От приёмки до отгрузки</div>
             </div>
         </div>
     </section>
