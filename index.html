@@ -55,20 +55,16 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            position: fixed;
+            position: absolute;
             top: 0;
             left: 0;
-            background: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(12px);
+            background: transparent;
             z-index: 1000;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
             transition: all 0.3s ease;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
         }
         
         header.scrolled {
             padding: 12px 40px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
         }
         
         .logo {
@@ -77,10 +73,7 @@
             gap: 12px;
             font-size: 24px;
             font-weight: 700;
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: #ffffff;
             cursor: pointer;
             text-decoration: none;
         }
@@ -111,7 +104,7 @@
         
         header nav a {
             text-decoration: none;
-            color: var(--text);
+            color: #ffffff;
             font-weight: 500;
             font-size: 15px;
             transition: color 0.3s ease;
@@ -119,7 +112,7 @@
         }
         
         header nav a:hover {
-            color: var(--primary);
+            color: rgba(255, 255, 255, 0.8);
         }
         
         header nav a::after {
@@ -146,13 +139,13 @@
         header .header-phone {
             font-size: 18px;
             font-weight: 700;
-            color: var(--text);
+            color: #ffffff;
             text-decoration: none;
             transition: color 0.3s ease;
         }
         
         header .header-phone:hover {
-            color: var(--primary);
+            color: rgba(255, 255, 255, 0.8);
         }
         
         header .header-messengers {
@@ -237,7 +230,7 @@
         .burger-menu span {
             width: 25px;
             height: 3px;
-            background: var(--text);
+            background: #ffffff;
             border-radius: 3px;
             transition: all 0.3s ease;
             display: block;
@@ -388,9 +381,8 @@
             align-items: center;
             justify-content: space-between;
             padding: 12px 20px;
-            background: var(--bg-white);
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-            position: fixed;
+            background: transparent;
+            position: absolute;
             top: 0;
             left: 0;
             right: 0;
@@ -402,7 +394,7 @@
             align-items: center;
             gap: 10px;
             text-decoration: none;
-            color: var(--text);
+            color: #ffffff;
             font-weight: 600;
             font-size: 16px;
         }
@@ -410,7 +402,7 @@
         .mobile-header-phone-icon {
             width: 24px;
             height: 24px;
-            color: var(--primary);
+            color: #ffffff;
             flex-shrink: 0;
         }
         
@@ -689,13 +681,12 @@
         
         #about {
             background-image: url('./images/image 5.png');
+            max-width: 100%;
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
-            background-attachment: fixed;
-            padding: 100px 40px;
-            max-width: 100%;
             position: relative;
+            background-attachment: fixed;
             overflow: hidden;
         }
         
@@ -713,24 +704,6 @@
         #about>* {
             position: relative;
             z-index: 1;
-        }
-        
-        #about h2 {
-            text-align: center;
-            font-size: 42px;
-            font-weight: 700;
-            margin-bottom: 15px;
-            color: var(--text);
-        }
-        
-        #about .section-subtitle {
-            text-align: center;
-            font-size: 18px;
-            color: var(--text-light);
-            margin-bottom: 60px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
         }
         /* PROBLEMS */
         
@@ -798,12 +771,6 @@
             gap: 30px;
             margin-top: 60px;
             position: relative;
-        }
-        
-        @media (max-width: 1200px) {
-            .work-steps {
-                grid-template-columns: repeat(2, 1fr);
-            }
         }
         
         .step {
@@ -903,18 +870,6 @@
         .step:nth-child(3) {
             animation: fadeInUp 0.6s ease 0.3s both;
         }
-        
-        .step:nth-child(4) {
-            animation: fadeInUp 0.6s ease 0.4s both;
-        }
-        
-        .step:nth-child(5) {
-            animation: fadeInUp 0.6s ease 0.5s both;
-        }
-        
-        .step:nth-child(6) {
-            animation: fadeInUp 0.6s ease 0.6s both;
-        }
         /* Адаптивность */
         
         @media (max-width: 968px) {
@@ -933,28 +888,45 @@
         
         .advantages {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
             margin-top: 50px;
         }
         
         .adv {
             padding: 30px 25px;
-            background: var(--bg-white);
-            border-radius: 12px;
-            font-size: 16px;
+            background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+            border-radius: 16px;
+            font-size: 17px;
             text-align: center;
             font-weight: 500;
             color: var(--text);
             transition: all 0.3s ease;
-            border: 1px solid rgba(0, 0, 0, 0.05);
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .adv::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(108, 74, 254, 0.1) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
         }
         
         .adv:hover {
             transform: translateY(-5px);
-            border-color: rgba(31, 91, 255, 0.2);
-            box-shadow: 0 8px 20px rgba(31, 91, 255, 0.12);
+            border-color: var(--primary);
+            box-shadow: 0 10px 30px rgba(108, 74, 254, 0.15);
+        }
+        
+        .adv:hover::before {
+            opacity: 1;
         }
         /* WHY US SECTION */
         
@@ -1886,7 +1858,7 @@
             header {
                 padding: 15px 20px;
                 flex-wrap: nowrap;
-                top: 64px;
+                top: 0;
             }
             .burger-menu {
                 display: flex;
@@ -1904,7 +1876,6 @@
             }
             .mobile-nav {
                 display: flex;
-                top: 130px;
             }
             header .header-contacts {
                 display: none;
@@ -1949,19 +1920,9 @@
             section {
                 padding: 60px 20px;
             }
-            #about {
-                padding: 80px 20px;
-                background-attachment: scroll;
-            }
-            #about h2 {
-                font-size: 36px;
-            }
             .work-steps,
             .advantages {
                 grid-template-columns: 1fr;
-            }
-            .adv {
-                padding: 25px 20px;
             }
             .work-steps::before {
                 display: none;
@@ -2091,55 +2052,13 @@
         
         .scroll-reveal {
             opacity: 0;
-            transform: translateY(50px);
-            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            transform: translateY(30px);
+            transition: all 0.6s ease;
         }
         
         .scroll-reveal.revealed {
             opacity: 1;
             transform: translateY(0);
-        }
-        /* Разные варианты анимаций */
-        
-        .scroll-reveal.fade-left {
-            transform: translateX(-50px) translateY(0);
-        }
-        
-        .scroll-reveal.fade-left.revealed {
-            transform: translateX(0) translateY(0);
-        }
-        
-        .scroll-reveal.fade-right {
-            transform: translateX(50px) translateY(0);
-        }
-        
-        .scroll-reveal.fade-right.revealed {
-            transform: translateX(0) translateY(0);
-        }
-        
-        .scroll-reveal.scale {
-            transform: scale(0.9) translateY(30px);
-        }
-        
-        .scroll-reveal.scale.revealed {
-            transform: scale(1) translateY(0);
-        }
-        /* Задержки для последовательного появления */
-        
-        .scroll-reveal.delay-1 {
-            transition-delay: 0.1s;
-        }
-        
-        .scroll-reveal.delay-2 {
-            transition-delay: 0.2s;
-        }
-        
-        .scroll-reveal.delay-3 {
-            transition-delay: 0.3s;
-        }
-        
-        .scroll-reveal.delay-4 {
-            transition-delay: 0.4s;
         }
         /* ACCESSIBILITY */
         
@@ -2334,7 +2253,7 @@
     <!-- SERVICES -->
     <section id="services">
         <h2 class="scroll-reveal">Полный цикл услуг</h2>
-        <p class="section-subtitle scroll-reveal">Управляйте складом без стресса и разрыва чакры. Меньше ошибок, Меньше штрафов, Больше продаж!</p>
+        <p class="section-subtitle scroll-reveal">Простой и прозрачный процесс от приёмки до отгрузки</p>
 
         <div class="work-steps">
             <div class="step scroll-reveal">
@@ -2363,34 +2282,6 @@
                 <h3>Отгрузка</h3>
                 <p>Сборка заказов и ежедневные передачи в WB/Ozon/Яндекс Маркет. Отгрузка в тот же день при поступлении до 15:00. Гарантия отсутствия ошибок в отгрузках.</p>
             </div>
-
-            <div class="step scroll-reveal">
-                <div class="step-number">4</div>
-                <div class="step-image-wrapper">
-                    <img src="./images/image3.png" alt="Подготовка товаров к отправке" loading="lazy">
-                </div>
-                <h3>Подготовка</h3>
-                <p>Четкое соблюдение ТЗ нашей разработки. Соберём комплекты, индивидуальные коробки. Все виды упаковки: Пупырка, боб, зип-пакеты, термоусадка, полиэтиленовый рукав, новые короба. Снятие замеров, габаритов товара в упаковке и без. Фото/Видео
-                    записи упаковки в случае спора с м.п. есть доказательства, что всё было упаковано идеально.</p>
-            </div>
-
-            <div class="step scroll-reveal">
-                <div class="step-number">5</div>
-                <div class="step-image-wrapper">
-                    <img src="./images/image2.png" alt="Хранение товаров на складе" loading="lazy">
-                </div>
-                <h3>Хранение</h3>
-                <p>Сухой и теплый склад. Бесплатное хранение товара в период обработки + 3 дня. Регулярная инвентаризация запасов. Актуальные остатки по клику. Полная ответственность за сохранность. Видео наблюдение. Круглосуточная охрана.</p>
-            </div>
-
-            <div class="step scroll-reveal">
-                <div class="step-number">6</div>
-                <div class="step-image-wrapper">
-                    <img src="./images/image4.png" alt="Отгрузка товаров на маркетплейсы" loading="lazy">
-                </div>
-                <h3>Отгрузка</h3>
-                <p>Сформируем поставки за вас. Доставки на склады маркетплейсов Wildberries, Ozon, ЯМаркет. Используем только 5-ти слойные короба. Работаем с товарами по схемам FBO. Умеем «срочно» за 48 часов от поступления.</p>
-            </div>
         </div>
     </section>
 
@@ -2413,9 +2304,9 @@
         <h2 class="scroll-reveal">О компании</h2>
         <p class="section-subtitle scroll-reveal">FulfillPro — ваш надёжный партнёр в логистике</p>
 
-        <div style="max-width: 1000px; margin: 0 auto;">
-            <div class="scroll-reveal" style="background: var(--bg-light); padding: 40px; border-radius: 16px; margin-bottom: 40px; text-align: center;">
-                <p style="font-size: 17px; line-height: 1.8; color: var(--text); margin: 0;">
+        <div style="max-width: 900px; margin: 50px auto 0; text-align: center;">
+            <div class="scroll-reveal" style="background: var(--bg-light); padding: 40px; border-radius: 20px; margin-bottom: 30px;">
+                <p style="font-size: 18px; line-height: 1.8; color: var(--text);">
                     Мы специализируемся на фулфилменте для маркетплейсов Wildberries, Ozon и Яндекс Маркет. Наша команда знает все тонкости работы с крупнейшими маркетплейсами России и готова взять на себя всю логистику вашего бизнеса.
                 </p>
             </div>
@@ -3014,18 +2905,16 @@
             }
         });
 
-        // Улучшенная анимация появления элементов при скролле
+        // Анимация появления элементов при скролле
         const observerOptions = {
-            threshold: 0.15,
-            rootMargin: '0px 0px -80px 0px'
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
         };
 
         const observer = new IntersectionObserver(function(entries) {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('revealed');
-                    // Убираем наблюдение после анимации для производительности
-                    observer.unobserve(entry.target);
                 }
             });
         }, observerOptions);
@@ -3033,25 +2922,6 @@
         // Наблюдаем за всеми элементами с классом scroll-reveal
         document.querySelectorAll('.scroll-reveal').forEach(el => {
             observer.observe(el);
-        });
-
-        // Анимация для элементов с задержкой (например, в списках)
-        const staggerObserver = new IntersectionObserver(function(entries) {
-            entries.forEach((entry, index) => {
-                if (entry.isIntersecting) {
-                    setTimeout(() => {
-                        entry.target.classList.add('revealed');
-                    }, index * 100); // Задержка 100ms между элементами
-                    staggerObserver.unobserve(entry.target);
-                }
-            });
-        }, observerOptions);
-
-        // Применяем задержку для элементов в списках (step, adv, why-us-item)
-        document.querySelectorAll('.step, .adv, .why-us-item').forEach(el => {
-            if (el.classList.contains('scroll-reveal')) {
-                staggerObserver.observe(el);
-            }
         });
 
         // Бургер-меню
@@ -3064,8 +2934,16 @@
         function updateMobileNavPosition() {
             if (mobileNav && header) {
                 const headerHeight = header.offsetHeight;
-                mobileNav.style.top = headerHeight + 'px';
-                mobileNav.style.maxHeight = `calc(100vh - ${headerHeight}px)`;
+                const mobileHeaderContacts = document.querySelector('.mobile-header-contacts');
+                let totalHeight = headerHeight;
+
+                // Если мобильный header с контактами отображается, учитываем его высоту
+                if (mobileHeaderContacts && window.getComputedStyle(mobileHeaderContacts).display !== 'none') {
+                    totalHeight += mobileHeaderContacts.offsetHeight;
+                }
+
+                mobileNav.style.top = totalHeight + 'px';
+                mobileNav.style.maxHeight = `calc(100vh - ${totalHeight}px)`;
             }
         }
 
@@ -3110,6 +2988,33 @@
             });
         }
     </script>
+
+</body>
+
+</html>рименяем задержку для элементов в списках (step, adv, why-us-item) document.querySelectorAll('.step, .adv, .why-us-item').forEach(el => { if (el.classList.contains('scroll-reveal')) { staggerObserver.observe(el); } }); // Бургер-меню const burgerMenu
+= document.querySelector('.burger-menu'); const mobileNav = document.querySelector('.mobile-nav'); const header = document.querySelector('header'); const body = document.body; // Функция для установки правильной позиции мобильного меню function updateMobileNavPosition()
+{ if (mobileNav && header) { const headerHeight = header.offsetHeight; mobileNav.style.top = headerHeight + 'px'; mobileNav.style.maxHeight = `calc(100vh - ${headerHeight}px)`; } } // Устанавливаем позицию при загрузке и изменении размера окна updateMobileNavPosition();
+window.addEventListener('resize', updateMobileNavPosition); // Обновляем позицию при скролле (на случай изменения высоты header) window.addEventListener('scroll', updateMobileNavPosition); function toggleMenu() { const isActive = burgerMenu.classList.toggle('active');
+mobileNav.classList.toggle('active'); burgerMenu.setAttribute('aria-expanded', isActive); body.style.overflow = isActive ? 'hidden' : ''; } function closeMenu() { burgerMenu.classList.remove('active'); mobileNav.classList.remove('active'); burgerMenu.setAttribute('aria-expanded',
+'false'); body.style.overflow = ''; } if (burgerMenu) { burgerMenu.addEventListener('click', toggleMenu); // Закрытие меню при клике на ссылку mobileNav.querySelectorAll('a').forEach(link => { link.addEventListener('click', function() { closeMenu(); });
+}); // Закрытие меню при клике вне его document.addEventListener('click', function(e) { if (mobileNav.classList.contains('active') && !mobileNav.contains(e.target) && !burgerMenu.contains(e.target)) { closeMenu(); } }); }
+</script>
+
+</body>
+
+</html> staggerObserver.observe(el); } }); // Бургер-меню const burgerMenu = document.querySelector('.burger-menu'); const mobileNav = document.querySelector('.mobile-nav'); const header = document.querySelector('header'); const body = document.body; // Функция
+для установки правильной позиции мобильного меню function updateMobileNavPosition() { if (mobileNav && header) { const headerHeight = header.offsetHeight; mobileNav.style.top = headerHeight + 'px'; mobileNav.style.maxHeight = `calc(100vh - ${headerHeight}px)`;
+} } // Устанавливаем позицию при загрузке и изменении размера окна updateMobileNavPosition(); window.addEventListener('resize', updateMobileNavPosition); // Обновляем позицию при скролле (на случай изменения высоты header) window.addEventListener('scroll',
+updateMobileNavPosition); function toggleMenu() { const isActive = burgerMenu.classList.toggle('active'); mobileNav.classList.toggle('active'); burgerMenu.setAttribute('aria-expanded', isActive); body.style.overflow = isActive ? 'hidden' : ''; } function
+closeMenu() { burgerMenu.classList.remove('active'); mobileNav.classList.remove('active'); burgerMenu.setAttribute('aria-expanded', 'false'); body.style.overflow = ''; } if (burgerMenu) { burgerMenu.addEventListener('click', toggleMenu); // Закрытие меню
+при клике на ссылку mobileNav.querySelectorAll('a').forEach(link => { link.addEventListener('click', function() { closeMenu(); }); }); // Закрытие меню при клике вне его document.addEventListener('click', function(e) { if (mobileNav.classList.contains('active')
+&& !mobileNav.contains(e.target) && !burgerMenu.contains(e.target)) { closeMenu(); } }); }
+</script>
+
+</body>
+
+</html>click', function(e) { if (mobileNav.classList.contains('active') && !mobileNav.contains(e.target) && !burgerMenu.contains(e.target)) { closeMenu(); } }); }
+</script>
 
 </body>
 
