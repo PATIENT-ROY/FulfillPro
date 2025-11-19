@@ -58,18 +58,16 @@
             position: fixed;
             top: 0;
             left: 0;
-            background: rgba(255, 255, 255, 0);
+            background: rgba(255, 255, 255, 0.98);
             backdrop-filter: blur(12px);
             z-index: 1000;
-            border-bottom: 1px solid transparent;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
             transition: all 0.3s ease;
-            box-shadow: none;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
         }
         
         header.scrolled {
             padding: 12px 40px;
-            background: rgba(255, 255, 255, 0.95);
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
         }
         
@@ -79,17 +77,12 @@
             gap: 12px;
             font-size: 24px;
             font-weight: 700;
-            color: #ffffff;
-            cursor: pointer;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-        
-        header.scrolled .logo {
             background: var(--gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            cursor: pointer;
+            text-decoration: none;
         }
         
         .logo-icon {
@@ -118,7 +111,7 @@
         
         header nav a {
             text-decoration: none;
-            color: #ffffff;
+            color: var(--text);
             font-weight: 500;
             font-size: 15px;
             transition: color 0.3s ease;
@@ -126,14 +119,6 @@
         }
         
         header nav a:hover {
-            color: rgba(255, 255, 255, 0.8);
-        }
-        
-        header.scrolled nav a {
-            color: var(--text);
-        }
-        
-        header.scrolled nav a:hover {
             color: var(--primary);
         }
         
@@ -161,20 +146,12 @@
         header .header-phone {
             font-size: 18px;
             font-weight: 700;
-            color: #ffffff;
+            color: var(--text);
             text-decoration: none;
             transition: color 0.3s ease;
         }
         
         header .header-phone:hover {
-            color: rgba(255, 255, 255, 0.8);
-        }
-        
-        header.scrolled .header-phone {
-            color: var(--text);
-        }
-        
-        header.scrolled .header-phone:hover {
             color: var(--primary);
         }
         
@@ -260,14 +237,10 @@
         .burger-menu span {
             width: 25px;
             height: 3px;
-            background: #ffffff;
+            background: var(--text);
             border-radius: 3px;
             transition: all 0.3s ease;
             display: block;
-        }
-        
-        header.scrolled .burger-menu span {
-            background: var(--text);
         }
         
         .burger-menu.active span:nth-child(1) {
@@ -415,22 +388,13 @@
             align-items: center;
             justify-content: space-between;
             padding: 12px 20px;
-            background: rgba(255, 255, 255, 0);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid transparent;
+            background: var(--bg-white);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
             z-index: 1001;
-            transition: all 0.3s ease;
-            box-shadow: none;
-        }
-        
-        .mobile-header-contacts.scrolled {
-            background: rgba(255, 255, 255, 0.95);
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
         }
         
         .mobile-header-phone {
@@ -438,14 +402,9 @@
             align-items: center;
             gap: 10px;
             text-decoration: none;
-            color: #ffffff;
+            color: var(--text);
             font-weight: 600;
             font-size: 16px;
-            transition: color 0.3s ease;
-        }
-        
-        .mobile-header-contacts.scrolled .mobile-header-phone {
-            color: var(--text);
         }
         
         .mobile-header-phone-icon {
@@ -1929,9 +1888,6 @@
                 flex-wrap: nowrap;
                 top: 64px;
             }
-            header.scrolled {
-                padding: 12px 20px;
-            }
             .burger-menu {
                 display: flex;
             }
@@ -3051,17 +3007,10 @@
         // Изменение header при скролле
         window.addEventListener('scroll', function() {
             const header = document.querySelector('header');
-            const mobileHeaderContacts = document.querySelector('.mobile-header-contacts');
             if (window.scrollY > 50) {
                 header.classList.add('scrolled');
-                if (mobileHeaderContacts) {
-                    mobileHeaderContacts.classList.add('scrolled');
-                }
             } else {
                 header.classList.remove('scrolled');
-                if (mobileHeaderContacts) {
-                    mobileHeaderContacts.classList.remove('scrolled');
-                }
             }
         });
 
